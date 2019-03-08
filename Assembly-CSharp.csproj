@@ -61,8 +61,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\CarCamera.cs" />
+    <Compile Include="Assets\CarCheckPoint.cs" />
     <Compile Include="Assets\CarController.cs" />
     <Compile Include="Assets\CarRayCast.cs" />
+    <Compile Include="Assets\CheckPointScript.cs" />
     <Compile Include="Assets\WheelController.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>/Users/jd/Desktop/Ai Car/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>

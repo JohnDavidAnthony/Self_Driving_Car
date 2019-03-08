@@ -1,10 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CarRayCast : MonoBehaviour{
     public Transform car;
     public Transform rayEnd;
+
+    public Text distanceText;
 
     private void Start(){
     }
@@ -25,9 +28,18 @@ public class CarRayCast : MonoBehaviour{
         // Cast the ray
         RaycastHit2D hit = Physics2D.Raycast(car.position, direction, direction.magnitude, layerMask);
         if (hit.collider != null){
-            Debug.DrawRay(car.position, direction, Color.red);
+            // Check to see if collision is a checkpoint
+            if (hit.collider.transform.CompareTag("CheckPoint")){
+                Debug.DrawRay(car.position, direction, Color.green);
+            }
+            else{
+                Debug.DrawRay(car.position, direction, Color.red);
+            }
+            distanceText.text = hit.distance.ToString("0.00");
+
         }else{
             Debug.DrawRay(car.position, direction, Color.white);
+            distanceText.text = "Null";
         }
 
     }

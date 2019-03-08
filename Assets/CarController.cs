@@ -68,19 +68,6 @@ public class CarController : MonoBehaviour
         return transform.right * Vector2.Dot(GetComponent<Rigidbody2D>().velocity, transform.right);
     }
 
-    private void OnTriggerExit2D(Collider2D other){
-        Debug.Log("EXIT");
-    }
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        Debug.Log("Enter");
-    }
-
-    private void OnTriggerStay2D(Collider2D collision){
-        Debug.Log("Stay");
-    }
-
     void RayCasting(Vector2 rayStart, Vector2 rayEnd){
 
     }

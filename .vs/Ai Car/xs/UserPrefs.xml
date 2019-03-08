@@ -2,9 +2,11 @@
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/CarRayCast.cs">
     <Files>
       <File FileName="Assets/CarCamera.cs" Line="7" Column="29" />
-      <File FileName="Assets/WheelController.cs" Line="12" Column="11" />
-      <File FileName="Assets/CarController.cs" Line="33" Column="9" />
-      <File FileName="Assets/CarRayCast.cs" Line="24" Column="9" />
+      <File FileName="Assets/WheelController.cs" Line="8" Column="28" />
+      <File FileName="Assets/CarController.cs" Line="27" Column="23" />
+      <File FileName="Assets/CheckPointScript.cs" Line="36" Column="44" />
+      <File FileName="Assets/CarCheckPoint.cs" Line="10" Column="12" />
+      <File FileName="Assets/CarRayCast.cs" Line="4" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
