@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class CarController : MonoBehaviour
 {
 
@@ -18,18 +19,60 @@ public class CarController : MonoBehaviour
     float maxSideways = .5f;
     // Start is called before the first frame update
 
+    public Rigidbody2D car;
+
+    // The Cars Sensors
+    public CarSensors frontSensor;
+    public CarSensors frontLeftSensor;
+    public CarSensors frontRightSensor;
+    public CarSensors leftSensor;
+    public CarSensors rightSensor;
+    public bool hitCheckPoint = false;
+
+    float torqueForce = 0;
+    public float AITurn = 1;
+
+    public float carDrive = 0;
+    public float carBrake = 0;
+    public float carTurn = 0;
+
+    public bool playerStopped = false;
+    public bool playerHitWall = false;
+    public bool playerHitCheckPoint = false;
+
+
     void Start()
     {
         
     }
 
     // Update is called once per frame
+    float timeLeft = 0;
+    bool timerStarted = false;
     void FixedUpdate()
     {
+        car = GetComponent<Rigidbody2D>();
 
 
-
-        Rigidbody2D car = GetComponent<Rigidbody2D>();
+        float delay = 5f;
+        // Check to see if car hasnt moved
+        if (car.velocity.magnitude < .05f){
+            // If timer is already going add to it
+            if (timerStarted){
+                timeLeft += Time.deltaTime;
+                if (timeLeft > delay){
+                    // Been idle for to long
+                    Debug.Log("Player Stopped Moving");
+                    playerStopped = true;
+                    timerStarted = false;
+                    timeLeft = 0;
+                }
+            }
+            // Otherwise start timer
+            else{
+                timerStarted = true;
+            }
+        }
 
         // How fast we drift
         float driftFactor = driftSpeedStatic;
@@ -40,20 +83,21 @@ public class CarController : MonoBehaviour
         car.velocity = ForwardVelocity() + SideVelocity() * driftFactor;
 
         // Movement
-        if (Input.GetKey(KeyCode.W)){
+        if (Input.GetKey(KeyCode.W) || carDrive > 0){
             // Go forward
             car.AddForce(transform.up * acceleration);
 
         }
-        if (Input.GetKey(KeyCode.S)){
+        if (Input.GetKey(KeyCode.S) || carBrake > 0){
             // Go Backwards
             car.velocity = car.velocity * .99f;
         }
 
         // Turning
         // Don't let car turn if stopped
-        float torqueForce = Mathf.Lerp(0, turnSpeed, car.velocity.magnitude / 2);
+        torqueForce = Mathf.Lerp(0, turnSpeed, car.velocity.magnitude / 2);
         car.angularVelocity = Input.GetAxis("Horizontal") * torqueForce;
+        car.angularVelocity = carTurn * torqueForce;
     }
 
     // Returns our velocity on the forward direction
@@ -68,8 +112,14 @@ public class CarController : MonoBehaviour
         return transform.right * Vector2.Dot(GetComponent<Rigidbody2D>().velocity, transform.right);
     }
 
-    void RayCasting(Vector2 rayStart, Vector2 rayEnd){
+    private void OnTriggerEnter2D(Collider2D other){
+        //Player collided with wall
+        //collided = true;
+        if (other.gameObject.tag == "CheckPoint"){
+            return;
+        }
 
+        playerHitWall = true;
+       
     }
-
 }

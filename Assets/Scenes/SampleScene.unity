@@ -121,7 +121,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 46557781}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: CheckPoints
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -176,7 +176,7 @@ GameObject:
   - component: {fileID: 64065066}
   - component: {fileID: 64065068}
   - component: {fileID: 64065067}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: CheckPoint 14
   m_TagString: CheckPoint
   m_Icon: {fileID: 0}
@@ -209,7 +209,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40576945c350243df9afe8004946ff27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  car: {fileID: 744794010}
+  car: {fileID: 744794012}
 --- !u!61 &64065068
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -247,7 +247,7 @@ GameObject:
   - component: {fileID: 118619518}
   - component: {fileID: 118619520}
   - component: {fileID: 118619519}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: CheckPoint 21
   m_TagString: CheckPoint
   m_Icon: {fileID: 0}
@@ -280,7 +280,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40576945c350243df9afe8004946ff27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  car: {fileID: 744794010}
+  car: {fileID: 744794012}
 --- !u!61 &118619520
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -318,7 +318,7 @@ GameObject:
   - component: {fileID: 231782662}
   - component: {fileID: 231782664}
   - component: {fileID: 231782663}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: CheckPoint 13
   m_TagString: CheckPoint
   m_Icon: {fileID: 0}
@@ -351,7 +351,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40576945c350243df9afe8004946ff27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  car: {fileID: 744794010}
+  car: {fileID: 744794012}
 --- !u!61 &231782664
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -389,7 +389,7 @@ GameObject:
   - component: {fileID: 294202585}
   - component: {fileID: 294202587}
   - component: {fileID: 294202586}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: CheckPoint 7
   m_TagString: CheckPoint
   m_Icon: {fileID: 0}
@@ -422,7 +422,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40576945c350243df9afe8004946ff27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  car: {fileID: 744794010}
+  car: {fileID: 744794012}
 --- !u!61 &294202587
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -494,6 +494,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   car: {fileID: 744794014}
   rayEnd: {fileID: 297594897}
+  distance: 0
   distanceText: {fileID: 1968692205}
 --- !u!1 &338353088
 GameObject:
@@ -506,7 +507,7 @@ GameObject:
   - component: {fileID: 338353089}
   - component: {fileID: 338353090}
   - component: {fileID: 338353091}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: CheckPoint 1
   m_TagString: CheckPoint
   m_Icon: {fileID: 0}
@@ -521,7 +522,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 338353088}
   m_LocalRotation: {x: -0, y: -0, z: -0.18218267, w: 0.9832647}
-  m_LocalPosition: {x: 3.16, y: 1.12, z: 0}
+  m_LocalPosition: {x: 3.05, y: 0.84, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 46557781}
@@ -565,7 +566,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40576945c350243df9afe8004946ff27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  car: {fileID: 744794010}
+  car: {fileID: 744794012}
 --- !u!1 &344171675
 GameObject:
   m_ObjectHideFlags: 0
@@ -577,7 +578,7 @@ GameObject:
   - component: {fileID: 344171676}
   - component: {fileID: 344171678}
   - component: {fileID: 344171677}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: CheckPoint 8
   m_TagString: CheckPoint
   m_Icon: {fileID: 0}
@@ -610,7 +611,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40576945c350243df9afe8004946ff27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  car: {fileID: 744794010}
+  car: {fileID: 744794012}
 --- !u!61 &344171678
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -714,7 +715,7 @@ GameObject:
   - component: {fileID: 403820269}
   - component: {fileID: 403820271}
   - component: {fileID: 403820270}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: CheckPoint 22
   m_TagString: CheckPoint
   m_Icon: {fileID: 0}
@@ -747,7 +748,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40576945c350243df9afe8004946ff27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  car: {fileID: 744794010}
+  car: {fileID: 744794012}
 --- !u!61 &403820271
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -819,6 +820,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   car: {fileID: 744794014}
   rayEnd: {fileID: 437116889}
+  distance: 0
   distanceText: {fileID: 2084613133}
 --- !u!1 &519420028
 GameObject:
@@ -1168,6 +1170,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   car: {fileID: 744794010}
+  aicar: {fileID: 744794012}
 --- !u!1 &666570057
 GameObject:
   m_ObjectHideFlags: 0
@@ -1178,7 +1181,7 @@ GameObject:
   m_Component:
   - component: {fileID: 666570058}
   m_Layer: 8
-  m_Name: Rays
+  m_Name: Sensors
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1214,7 +1217,7 @@ GameObject:
   - component: {fileID: 672710412}
   - component: {fileID: 672710414}
   - component: {fileID: 672710413}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: CheckPoint 11
   m_TagString: CheckPoint
   m_Icon: {fileID: 0}
@@ -1247,7 +1250,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40576945c350243df9afe8004946ff27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  car: {fileID: 744794010}
+  car: {fileID: 744794012}
 --- !u!61 &672710414
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1285,7 +1288,7 @@ GameObject:
   - component: {fileID: 694899073}
   - component: {fileID: 694899075}
   - component: {fileID: 694899074}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: CheckPoint 15
   m_TagString: CheckPoint
   m_Icon: {fileID: 0}
@@ -1318,7 +1321,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40576945c350243df9afe8004946ff27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  car: {fileID: 744794010}
+  car: {fileID: 744794012}
 --- !u!61 &694899075
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1356,7 +1359,7 @@ GameObject:
   - component: {fileID: 742422968}
   - component: {fileID: 742422970}
   - component: {fileID: 742422969}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: CheckPoint 5
   m_TagString: CheckPoint
   m_Icon: {fileID: 0}
@@ -1389,7 +1392,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40576945c350243df9afe8004946ff27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  car: {fileID: 744794010}
+  car: {fileID: 744794012}
 --- !u!61 &742422970
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1427,6 +1430,7 @@ GameObject:
   - component: {fileID: 744794014}
   - component: {fileID: 744794013}
   - component: {fileID: 744794012}
+  - component: {fileID: 744794016}
   - component: {fileID: 744794011}
   - component: {fileID: 744794010}
   - component: {fileID: 744794015}
@@ -1496,6 +1500,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eed9bd531184248da930795d9aefc9e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  car: {fileID: 0}
+  frontSensor: {fileID: 1072791171}
+  frontLeftSensor: {fileID: 437116890}
+  frontRightSensor: {fileID: 297594898}
+  leftSensor: {fileID: 1272927227}
+  rightSensor: {fileID: 960830053}
+  hitCheckPoint: 0
+  AITurn: 1
+  carDrive: 0
+  carBrake: 0
+  carTurn: 0
+  playerStopped: 0
+  playerHitWall: 0
+  playerHitCheckPoint: 0
 --- !u!212 &744794013
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1602,6 +1620,26 @@ MonoBehaviour:
   nextCheckpoint: 1
   currentLap: 0
   checkPointText: {fileID: 2120431415}
+--- !u!114 &744794016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 744794009}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5b2b1715830f43a29c3d44848b2c2b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brain: {fileID: 11400000, guid: 0f0c8907887754d5988a6ca0c914debe, type: 2}
+  agentParameters:
+    agentCameras: []
+    maxStep: 0
+    resetOnDone: 1
+    onDemandDecision: 0
+    numberOfActionsBetweenDecisions: 10
+  carController: {fileID: 744794012}
 --- !u!1 &800440691
 GameObject:
   m_ObjectHideFlags: 0
@@ -1613,7 +1651,7 @@ GameObject:
   - component: {fileID: 800440692}
   - component: {fileID: 800440694}
   - component: {fileID: 800440693}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: CheckPoint 2
   m_TagString: CheckPoint
   m_Icon: {fileID: 0}
@@ -1628,7 +1666,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 800440691}
   m_LocalRotation: {x: -0, y: -0, z: -0.18218267, w: 0.9832647}
-  m_LocalPosition: {x: 3.42, y: 1.8, z: 0}
+  m_LocalPosition: {x: 3.15, y: 1.11, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 46557781}
@@ -1646,7 +1684,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40576945c350243df9afe8004946ff27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  car: {fileID: 744794010}
+  car: {fileID: 744794012}
 --- !u!61 &800440694
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1718,6 +1756,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   car: {fileID: 744794014}
   rayEnd: {fileID: 960830052}
+  distance: 0
   distanceText: {fileID: 2033741893}
 --- !u!1 &961557595
 GameObject:
@@ -1730,7 +1769,7 @@ GameObject:
   - component: {fileID: 961557596}
   - component: {fileID: 961557598}
   - component: {fileID: 961557597}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: CheckPoint 6
   m_TagString: CheckPoint
   m_Icon: {fileID: 0}
@@ -1763,7 +1802,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40576945c350243df9afe8004946ff27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  car: {fileID: 744794010}
+  car: {fileID: 744794012}
 --- !u!61 &961557598
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1835,6 +1874,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   car: {fileID: 744794014}
   rayEnd: {fileID: 1072791170}
+  distance: 0
   distanceText: {fileID: 1084374911}
 --- !u!1 &1084374909
 GameObject:
@@ -1966,6 +2006,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   car: {fileID: 744794014}
   rayEnd: {fileID: 1272927226}
+  distance: 0
   distanceText: {fileID: 1602149828}
 --- !u!1 &1281456925
 GameObject:
@@ -1978,7 +2019,7 @@ GameObject:
   - component: {fileID: 1281456926}
   - component: {fileID: 1281456928}
   - component: {fileID: 1281456927}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: CheckPoint 23
   m_TagString: CheckPoint
   m_Icon: {fileID: 0}
@@ -2011,7 +2052,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40576945c350243df9afe8004946ff27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  car: {fileID: 744794010}
+  car: {fileID: 744794012}
 --- !u!61 &1281456928
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2049,7 +2090,7 @@ GameObject:
   - component: {fileID: 1349859362}
   - component: {fileID: 1349859364}
   - component: {fileID: 1349859363}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: CheckPoint 9
   m_TagString: CheckPoint
   m_Icon: {fileID: 0}
@@ -2082,7 +2123,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40576945c350243df9afe8004946ff27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  car: {fileID: 744794010}
+  car: {fileID: 744794012}
 --- !u!61 &1349859364
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2120,7 +2161,7 @@ GameObject:
   - component: {fileID: 1400782141}
   - component: {fileID: 1400782143}
   - component: {fileID: 1400782142}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: CheckPoint 4
   m_TagString: CheckPoint
   m_Icon: {fileID: 0}
@@ -2153,7 +2194,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40576945c350243df9afe8004946ff27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  car: {fileID: 744794010}
+  car: {fileID: 744794012}
 --- !u!61 &1400782143
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2291,7 +2332,7 @@ GameObject:
   - component: {fileID: 1513829135}
   - component: {fileID: 1513829137}
   - component: {fileID: 1513829136}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: CheckPoint 20
   m_TagString: CheckPoint
   m_Icon: {fileID: 0}
@@ -2324,7 +2365,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40576945c350243df9afe8004946ff27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  car: {fileID: 744794010}
+  car: {fileID: 744794012}
 --- !u!61 &1513829137
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2362,7 +2403,7 @@ GameObject:
   - component: {fileID: 1552248111}
   - component: {fileID: 1552248113}
   - component: {fileID: 1552248112}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: CheckPoint 10
   m_TagString: CheckPoint
   m_Icon: {fileID: 0}
@@ -2395,7 +2436,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40576945c350243df9afe8004946ff27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  car: {fileID: 744794010}
+  car: {fileID: 744794012}
 --- !u!61 &1552248113
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2512,7 +2553,7 @@ GameObject:
   - component: {fileID: 1677444621}
   - component: {fileID: 1677444623}
   - component: {fileID: 1677444622}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: CheckPoint 17
   m_TagString: CheckPoint
   m_Icon: {fileID: 0}
@@ -2545,7 +2586,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40576945c350243df9afe8004946ff27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  car: {fileID: 744794010}
+  car: {fileID: 744794012}
 --- !u!61 &1677444623
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2583,7 +2624,7 @@ GameObject:
   - component: {fileID: 1738715671}
   - component: {fileID: 1738715673}
   - component: {fileID: 1738715672}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: CheckPoint 16
   m_TagString: CheckPoint
   m_Icon: {fileID: 0}
@@ -2616,7 +2657,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40576945c350243df9afe8004946ff27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  car: {fileID: 744794010}
+  car: {fileID: 744794012}
 --- !u!61 &1738715673
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2643,6 +2684,69 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.0618982, y: 0.11286569}
   m_EdgeRadius: 0
+--- !u!1 &1760166873
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1760166875}
+  - component: {fileID: 1760166874}
+  m_Layer: 0
+  m_Name: Academy
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1760166874
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1760166873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db79f63e260da4417bc1e57e3b98b6bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  broadcastHub:
+    broadcastingBrains:
+    - {fileID: 11400000, guid: 0f0c8907887754d5988a6ca0c914debe, type: 2}
+    _brainsToControl:
+    - {fileID: 11400000, guid: 0f0c8907887754d5988a6ca0c914debe, type: 2}
+  maxSteps: 0
+  trainingConfiguration:
+    width: 80
+    height: 80
+    qualityLevel: 1
+    timeScale: 1
+    targetFrameRate: -1
+  inferenceConfiguration:
+    width: 1280
+    height: 720
+    qualityLevel: 5
+    timeScale: 1
+    targetFrameRate: 60
+  resetParameters:
+    resetParameters: []
+--- !u!4 &1760166875
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1760166873}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -13.011273, y: 22.620796, z: -2.619845}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1827136754
 GameObject:
   m_ObjectHideFlags: 0
@@ -2654,7 +2758,7 @@ GameObject:
   - component: {fileID: 1827136755}
   - component: {fileID: 1827136757}
   - component: {fileID: 1827136756}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: CheckPoint 19
   m_TagString: CheckPoint
   m_Icon: {fileID: 0}
@@ -2687,7 +2791,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40576945c350243df9afe8004946ff27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  car: {fileID: 744794010}
+  car: {fileID: 744794012}
 --- !u!61 &1827136757
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2793,6 +2897,36 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1907049350
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1907049351}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1907049351
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1907049350}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -13.011273, y: 22.620796, z: -2.619845}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1957352021
 GameObject:
   m_ObjectHideFlags: 0
@@ -2804,7 +2938,7 @@ GameObject:
   - component: {fileID: 1957352022}
   - component: {fileID: 1957352024}
   - component: {fileID: 1957352023}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: CheckPoint 3
   m_TagString: CheckPoint
   m_Icon: {fileID: 0}
@@ -2837,7 +2971,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40576945c350243df9afe8004946ff27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  car: {fileID: 744794010}
+  car: {fileID: 744794012}
 --- !u!61 &1957352024
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3033,7 +3167,7 @@ GameObject:
   - component: {fileID: 2080965082}
   - component: {fileID: 2080965084}
   - component: {fileID: 2080965083}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: CheckPoint 18
   m_TagString: CheckPoint
   m_Icon: {fileID: 0}
@@ -3066,7 +3200,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40576945c350243df9afe8004946ff27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  car: {fileID: 744794010}
+  car: {fileID: 744794012}
 --- !u!61 &2080965084
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3265,6 +3399,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   car: {fileID: 744794010}
+  aicar: {fileID: 744794012}
 --- !u!1 &2120431413
 GameObject:
   m_ObjectHideFlags: 0
@@ -3355,7 +3490,7 @@ GameObject:
   - component: {fileID: 2123536801}
   - component: {fileID: 2123536803}
   - component: {fileID: 2123536802}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: CheckPoint 12
   m_TagString: CheckPoint
   m_Icon: {fileID: 0}
@@ -3388,7 +3523,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40576945c350243df9afe8004946ff27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  car: {fileID: 744794010}
+  car: {fileID: 744794012}
 --- !u!61 &2123536803
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3426,6 +3561,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Track
+      objectReference: {fileID: 0}
+    - target: {fileID: 7618277537221438554, guid: 990292c0cb379499c994b432619f987c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7618277537221438554, guid: 990292c0cb379499c994b432619f987c,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 7618277537221438552, guid: 990292c0cb379499c994b432619f987c,
         type: 3}
@@ -3481,6 +3626,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9177231320422756154, guid: 990292c0cb379499c994b432619f987c,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 990292c0cb379499c994b432619f987c, type: 3}

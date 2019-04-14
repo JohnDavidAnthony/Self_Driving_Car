@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CheckPointScript : MonoBehaviour
 {
-    public Rigidbody2D car;
+    public CarController car;
 
     // Start is called before the first frame update
     void Start()
@@ -36,7 +36,10 @@ public class CheckPointScript : MonoBehaviour
                 carCheckPoint.currentLap += 1;
             }else{
                 // We've reached another checkpoint
+                Debug.Log("Player hit checkpoint");
+                car.playerHitCheckPoint = true;
                 carCheckPoint.nextCheckpoint += 1;
+                car.hitCheckPoint = true;
             }
         }
 
