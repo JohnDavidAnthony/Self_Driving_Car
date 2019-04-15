@@ -42,6 +42,33 @@ public class CarController : MonoBehaviour
 
 
     void Start(){
+        //System.Diagnostics.Debug.WriteLine("Ddwad");
+        //System.Diagnostics.Trace.WriteLine("message");
+        //System.Diagnostics.Debug.WriteLine("Send to debug output.");
+        //Academy a = new Academy(2);
+        //Debug.Log("Mother");
+        //List<double>b = a.population[0].Encode();
+        //foreach (var item in b)
+        //    Debug.Log(item); // Replace this with your version of printing
+
+        //Debug.Log("Father");
+        //List<double> c = a.population[1].Encode();
+        //foreach (var item in c)
+        //    Debug.Log(item); // Replace this with your version of printing
+
+        //a.Crossover(b, c);
+
+        //Debug.Log("Mother");
+        //foreach (var item in b)
+        //    Debug.Log(item); // Replace this with your version of printing
+
+        //Debug.Log("Father");
+        //foreach (var item in c)
+            //Debug.Log(item); // Replace this with your version of printing
+
+
+
+
     }
 
     // Update is called once per frame

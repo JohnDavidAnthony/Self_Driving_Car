@@ -78,15 +78,33 @@ public class NeuralNetwork : MonoBehaviour
         List<double> chromosome = new List<double>();
         // Get data from NN for chromosome
         for (int i = 1; i < layers.Count; i++){
-            // last layer
             for (int j = 0; j < layers[i].neurons.Count; j++){
+                // Add the neruon's bias to the chromosome
                 chromosome.Add(layers[i].neurons[j].bias);
-                // Add each weight input to the neuron
+                // Add each weight input to the chromosome
                 for (int k = 0; k < layers[i].neurons[j].NumDendrites(); k++){
                     chromosome.Add(layers[i].neurons[j].dendrites[k].weight);
                 }
             }
         }
         return chromosome;
+    }
+
+    // Apply new chromosome to NN
+    public void Decode(List<double> chromosome){
+        int geneIndex = 0;
+
+        for (int i = 1; i < layers.Count; i++){
+            for (int j = 0; j < layers[i].neurons.Count; j++){
+                layers[i].neurons[j].bias = chromosome[geneIndex];
+                geneIndex++;
+                // Add each weight input to the neuron
+                for (int k = 0; k < layers[i].neurons[j].NumDendrites(); k++){
+                    layers[i].neurons[j].dendrites[k].weight = chromosome[geneIndex];
+                    geneIndex++;
+                }
+            }
+        }
+        
     }
 }

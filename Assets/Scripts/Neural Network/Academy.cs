@@ -15,8 +15,20 @@ public class Academy : MonoBehaviour
         }
     }
 
-    public void Breed(NeuralNetwork mother, NeuralNetwork father){
+    // Cross over the chromosomes
+    public void Crossover(List<double> mother, List<double> father){
+        int middle = Mathf.FloorToInt(mother.Count / 2);
+        List<double> tempM = new List<double>();
+        List<double> tempF = new List<double>();
+        for (int i = 0; i < middle; i++){
+            tempM.Add(mother[i]);
+            tempF.Add(father[i]);
+        }
+        mother.RemoveRange(0, middle);
+        father.RemoveRange(0, middle);
 
+        mother.InsertRange(0, tempF);
+        father.InsertRange(0, tempM);
 
     }
     // Use this for initialization
