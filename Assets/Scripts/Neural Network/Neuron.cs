@@ -1,7 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
+using System;
 
-public class Neuron : MonoBehaviour
+[Serializable]
+public class Neuron
 {
     // our inputs (dendrites)
     public List<Dendrite> dendrites;
@@ -17,7 +19,7 @@ public class Neuron : MonoBehaviour
 
     // Constructor
     public Neuron(){
-        this.bias = Random.Range(0f, 1f);
+        this.bias = UnityEngine.Random.Range(0f, 1f);
         this.dendrites = new List<Dendrite>();
     }
     // Constructor

@@ -1,7 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
+using System;
 
-public class Layer : MonoBehaviour
+[Serializable]
+public class Layer
 {
     public List<Neuron> neurons;
 

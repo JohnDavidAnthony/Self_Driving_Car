@@ -1,12 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
-public class Dendrite : MonoBehaviour
+[Serializable]
+public class Dendrite
 {
     public double weight;
 
     public Dendrite(){
-        weight = Random.Range(0.0f, 1.0f);
+        weight = UnityEngine.Random.Range(0.0f, 1.0f);
     }
 
 }

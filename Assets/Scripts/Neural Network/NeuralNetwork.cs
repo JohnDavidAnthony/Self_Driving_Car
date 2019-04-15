@@ -1,13 +1,18 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 using System;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 
-public class NeuralNetwork : MonoBehaviour
+[Serializable]
+public class NeuralNetwork
 {
     public List<Layer> layers;
     public double learningRate;
     // The number of neurons in each layer
     public int[] layerStructure;
+    public double fitness;
+    public double fitnessRatio;
 
     public int NumLayers(){
         return layers.Count;
@@ -24,6 +29,8 @@ public class NeuralNetwork : MonoBehaviour
         this.learningRate = learningRate;
         this.layers = new List<Layer>();
         this.layerStructure = layers;
+        this.fitness = 5f;
+        this.fitnessRatio = 0f;
 
         // initalize our NN with layers of neurons
         for (int i = 0; i < layers.Length; i++){
@@ -105,6 +112,8 @@ public class NeuralNetwork : MonoBehaviour
                 }
             }
         }
-        
+
     }
+
 }
+

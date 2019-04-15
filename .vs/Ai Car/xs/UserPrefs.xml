@@ -1,20 +1,19 @@
 ﻿<Properties StartupConfiguration="{EDCED9C6-46B6-032C-1724-343E5AABC8EF}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Neural Network/Test.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/CarController.cs">
     <Files>
       <File FileName="Assets/Scripts/CarCamera.cs" Line="7" Column="29" />
-      <File FileName="Assets/Scripts/CarController.cs" Line="34" Column="1" />
-      <File FileName="Assets/Scripts/WheelController.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/CarController.cs" Line="79" Column="38" />
       <File FileName="Assets/Scripts/CarSensors.cs" Line="46" Column="10" />
-      <File FileName="Assets/Scripts/Neural Network/Dendrite.cs" Line="5" Column="2" />
-      <File FileName="Assets/Scripts/Neural Network/Neuron.cs" Line="29" Column="2" />
-      <File FileName="Assets/Scripts/Neural Network/Layer.cs" Line="2" Column="1" />
-      <File FileName="Assets/Scripts/Neural Network/NeuralNetwork.cs" Line="64" Column="12" />
-      <File FileName="Assets/Scripts/Neural Network/Academy.cs" Line="18" Column="65" />
-      <File FileName="Assets/Scripts/Neural Network/Test.cs" Line="17" Column="1" />
+      <File FileName="Assets/Scripts/Neural Network/Dendrite.cs" Line="7" Column="2" />
+      <File FileName="Assets/Scripts/Neural Network/Neuron.cs" Line="5" Column="1" />
+      <File FileName="Assets/Scripts/Neural Network/Layer.cs" Line="5" Column="4" />
+      <File FileName="Assets/Scripts/Neural Network/NeuralNetwork.cs" Line="22" Column="19" />
+      <File FileName="Assets/Scripts/Neural Network/Academy.cs" Line="150" Column="13" />
+      <File FileName="Assets/Scripts/Neural Network/Test.cs" Line="16" Column="40" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
   <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />

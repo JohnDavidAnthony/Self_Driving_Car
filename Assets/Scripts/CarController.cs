@@ -45,26 +45,50 @@ public class CarController : MonoBehaviour
         //System.Diagnostics.Debug.WriteLine("Ddwad");
         //System.Diagnostics.Trace.WriteLine("message");
         //System.Diagnostics.Debug.WriteLine("Send to debug output.");
-        //Academy a = new Academy(2);
+        Academy a = new Academy(2, .01f);
+        Debug.Log("Mother");
+        List<double>b = a.population[0].Encode();
+        foreach (var item in b)
+            Debug.Log(item); // Replace this with your version of printing
+
+        Debug.Log("Father");
+        List<double> c = a.population[1].Encode();
+        foreach (var item in c)
+            Debug.Log(item); // Replace this with your version of printing
+
+
+        Debug.Log("\n Breeding");
+        a.NextGeneration();
+
+        Debug.Log("Child 1");
+        List<double> d = a.nextGeneration[0].Encode();
+        foreach (var item in d)
+            Debug.Log(item); // Replace this with your version of printing
+
+        Debug.Log("Child 2");
+        List<double> e = a.nextGeneration[1].Encode();
+        foreach (var item in e)
+            Debug.Log(item); // Replace this with your version of printing
+
+
+        Debug.Log("Mother after birth");
+        b = a.population[0].Encode();
+        foreach (var item in b)
+            Debug.Log(item); // Replace this with your version of printing
+
+        Debug.Log("Father after birth");
+        c = a.population[1].Encode();
+        foreach (var item in c)
+            Debug.Log(item); // Replace this with your version of printing
+
+
         //Debug.Log("Mother");
-        //List<double>b = a.population[0].Encode();
         //foreach (var item in b)
         //    Debug.Log(item); // Replace this with your version of printing
 
         //Debug.Log("Father");
-        //List<double> c = a.population[1].Encode();
         //foreach (var item in c)
-        //    Debug.Log(item); // Replace this with your version of printing
-
-        //a.Crossover(b, c);
-
-        //Debug.Log("Mother");
-        //foreach (var item in b)
-        //    Debug.Log(item); // Replace this with your version of printing
-
-        //Debug.Log("Father");
-        //foreach (var item in c)
-            //Debug.Log(item); // Replace this with your version of printing
+        //Debug.Log(item); // Replace this with your version of printing
 
 
 
