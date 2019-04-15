@@ -41,9 +41,7 @@ public class CarController : MonoBehaviour
     public bool playerHitCheckPoint = false;
 
 
-    void Start()
-    {
-        
+    void Start(){
     }
 
     // Update is called once per frame
@@ -97,7 +95,6 @@ public class CarController : MonoBehaviour
         // Don't let car turn if stopped
         torqueForce = Mathf.Lerp(0, turnSpeed, car.velocity.magnitude / 2);
         car.angularVelocity = Input.GetAxis("Horizontal") * torqueForce;
-        //car.angularVelocity = carTurn * torqueForce;
     }
 
     // Returns our velocity on the forward direction

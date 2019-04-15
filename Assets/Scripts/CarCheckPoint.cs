@@ -20,6 +20,6 @@ public class CarCheckPoint : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        checkPointText.text = nextCheckpoint.ToString();
+        checkPointText.text = "Checkpoint: " + nextCheckpoint.ToString();
     }
 }

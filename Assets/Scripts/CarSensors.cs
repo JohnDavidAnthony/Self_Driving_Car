@@ -42,7 +42,7 @@ public class CarSensors : MonoBehaviour{
         }else{
             distance = 10000000f;
             Debug.DrawRay(car.position, direction, Color.white);
-            distanceText.text = "Null";
+            distanceText.text = "Inf";
         }
 
     }

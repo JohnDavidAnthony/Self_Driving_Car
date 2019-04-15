@@ -65,7 +65,14 @@
     <Compile Include="Assets\Scripts\CarController.cs" />
     <Compile Include="Assets\Scripts\CarSensors.cs" />
     <Compile Include="Assets\Scripts\CheckPointScript.cs" />
+    <Compile Include="Assets\Scripts\Neural Network\Academy.cs" />
+    <Compile Include="Assets\Scripts\Neural Network\Dendrite.cs" />
+    <Compile Include="Assets\Scripts\Neural Network\Layer.cs" />
+    <Compile Include="Assets\Scripts\Neural Network\NeuralNetwork.cs" />
+    <Compile Include="Assets\Scripts\Neural Network\Neuron.cs" />
+    <Compile Include="Assets\Scripts\Neural Network\Test.cs" />
     <Compile Include="Assets\Scripts\WheelController.cs" />
+    <Compile Include="Assets\UI_Speed.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>/Users/jd/Desktop/Ai Car/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
