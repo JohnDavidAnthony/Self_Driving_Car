@@ -19,7 +19,7 @@ public class Neuron
 
     // Constructor
     public Neuron(){
-        this.bias = UnityEngine.Random.Range(0f, 1f);
+        this.bias = UnityEngine.Random.Range(-.5f, .5f);
         this.dendrites = new List<Dendrite>();
     }
     // Constructor

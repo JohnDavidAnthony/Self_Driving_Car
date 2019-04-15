@@ -2,14 +2,15 @@
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/CarController.cs">
     <Files>
       <File FileName="Assets/Scripts/CarCamera.cs" Line="7" Column="29" />
-      <File FileName="Assets/Scripts/CarController.cs" Line="79" Column="38" />
+      <File FileName="Assets/Scripts/CarController.cs" Line="131" Column="80" />
       <File FileName="Assets/Scripts/CarSensors.cs" Line="46" Column="10" />
       <File FileName="Assets/Scripts/Neural Network/Dendrite.cs" Line="7" Column="2" />
       <File FileName="Assets/Scripts/Neural Network/Neuron.cs" Line="5" Column="1" />
       <File FileName="Assets/Scripts/Neural Network/Layer.cs" Line="5" Column="4" />
-      <File FileName="Assets/Scripts/Neural Network/NeuralNetwork.cs" Line="22" Column="19" />
-      <File FileName="Assets/Scripts/Neural Network/Academy.cs" Line="150" Column="13" />
-      <File FileName="Assets/Scripts/Neural Network/Test.cs" Line="16" Column="40" />
+      <File FileName="Assets/Scripts/Neural Network/NeuralNetwork.cs" Line="158" Column="9" />
+      <File FileName="Assets/Scripts/Neural Network/Academy.cs" Line="39" Column="6" />
+      <File FileName="Assets/Scripts/Neural Network/AICarController.cs" Line="24" Column="31" />
+      <File FileName="Assets/UI_Speed.cs" Line="19" Column="70" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

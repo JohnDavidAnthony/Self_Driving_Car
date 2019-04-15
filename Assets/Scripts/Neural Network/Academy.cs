@@ -115,7 +115,14 @@ public class Academy
                 }
                 // Parent 2 selected
                 if (chance2 <= range && parent2Index < 0){
-                    parent2Index = j;
+                    // avoid two of the same parent
+                    if (parent1Index == j){
+                        // Parent 2 is the next availible parent
+                        parent2Index = (j + 1) % population.Count;
+                    }
+                    else{
+                        parent2Index = j;
+                    }
                 }
                 if (parent1Index >= 0 && parent2Index >= 0){
                     break;

@@ -50,7 +50,7 @@ public class NeuralNetwork
                     neuron.bias = 0;
                 }else{
                     if (i == layers.Length - 1){ // Last layer set bias to .5 --- Only for my setup remove otherwise
-                        neuron.bias = .5;
+                        neuron.bias = 0;
                     }
 
                     // For each neuron create dendrite to other neurons
@@ -114,6 +114,49 @@ public class NeuralNetwork
         }
 
     }
+
+    // Run the NN
+    public double[] run(List<double> input){
+        // Check to see if input is right size
+        if (input.Count != this.layers[0].neurons.Count){
+            return null;
+        }
+
+        // Pass input through each layer of network
+        for (int l = 0; l < layers.Count; l++){
+            Layer currentLayer = layers[l];
+
+            for (int n = 0; n < currentLayer.neurons.Count; n++){
+                Neuron neuron = currentLayer.neurons[n];
+
+                // if first layer pass in input
+                if (l == 0){
+                    neuron.value = input[n];
+                }else{ // Get input from neurons before it and apply weights
+                    neuron.value = 0;
+                    for (int lastNeuron = 0; lastNeuron < this.layers[l - 1].neurons.Count; lastNeuron++){
+                        neuron.value += this.layers[l - 1].neurons[lastNeuron].value * neuron.dendrites[lastNeuron].weight;
+
+                        // Call activation fxn
+                        neuron.value = Sigmoid(neuron.value + neuron.bias);
+                    }
+                } // End if
+
+            }// End inner for
+
+        }// End outter for
+
+        // Get output layer
+        Layer lastLayer = this.layers[this.layers.Count - 1];
+        int numOutput = lastLayer.neurons.Count;
+        double[] output = new double[numOutput];
+        // Add output to layer
+        for (int i = 0; i < numOutput; i++){
+            output[i] = lastLayer.neurons[i].value;
+        }
+        return output;
+
+    }// End run
 
 }
 
