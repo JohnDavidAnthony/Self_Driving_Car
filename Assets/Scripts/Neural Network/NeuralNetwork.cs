@@ -11,7 +11,7 @@ public class NeuralNetwork
     public double learningRate;
     // The number of neurons in each layer
     public int[] layerStructure;
-    public double fitness;
+    public float fitness;
     public double fitnessRatio;
 
     public int NumLayers(){
@@ -29,7 +29,7 @@ public class NeuralNetwork
         this.learningRate = learningRate;
         this.layers = new List<Layer>();
         this.layerStructure = layers;
-        this.fitness = 5f;
+        this.fitness = 0f;
         this.fitnessRatio = 0f;
 
         // initalize our NN with layers of neurons
@@ -50,7 +50,7 @@ public class NeuralNetwork
                     neuron.bias = 0;
                 }else{
                     if (i == layers.Length - 1){ // Last layer set bias to .5 --- Only for my setup remove otherwise
-                        neuron.bias = 0;
+                        //neuron.bias = 0;
                     }
 
                     // For each neuron create dendrite to other neurons

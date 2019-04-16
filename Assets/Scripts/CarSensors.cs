@@ -40,7 +40,7 @@ public class CarSensors : MonoBehaviour{
             distanceText.text = hit.distance.ToString("0.00");
 
         }else{
-            distance = 10000000f;
+            distance = 100f;
             Debug.DrawRay(car.position, direction, Color.white);
             distanceText.text = "Inf";
         }

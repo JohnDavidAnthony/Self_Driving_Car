@@ -1,5 +1,4 @@
-﻿using UnityEngine;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System;
 
 [Serializable]
@@ -19,7 +18,9 @@ public class Neuron
 
     // Constructor
     public Neuron(){
-        this.bias = UnityEngine.Random.Range(-.5f, .5f);
+        System.Random n = new Random(Environment.TickCount);
+        this.bias = n.NextDouble();
+
         this.dendrites = new List<Dendrite>();
     }
     // Constructor

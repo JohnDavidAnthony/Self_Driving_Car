@@ -1,6 +1,4 @@
-﻿using UnityEngine;
-using System.Collections;
-using System;
+﻿using System;
 
 [Serializable]
 public class Dendrite
@@ -8,7 +6,8 @@ public class Dendrite
     public double weight;
 
     public Dendrite(){
-        weight = UnityEngine.Random.Range(-1f, 1f);
+        CryptoRandom n = new CryptoRandom();
+        this.weight = n.RandomValue;
     }
 
 }

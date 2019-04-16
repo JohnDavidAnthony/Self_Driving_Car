@@ -36,8 +36,7 @@ public class CheckPointScript : MonoBehaviour
                 carCheckPoint.currentLap += 1;
             }else{
                 // We've reached another checkpoint
-                Debug.Log("Player hit checkpoint");
-                car.playerHitCheckPoint = true;
+                //Debug.Log("Player hit checkpoint");
                 carCheckPoint.nextCheckpoint += 1;
                 car.hitCheckPoint = true;
             }

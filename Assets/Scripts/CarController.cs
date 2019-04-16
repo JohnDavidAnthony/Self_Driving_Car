@@ -17,7 +17,10 @@ public class CarController : MonoBehaviour
 
     // Max amount that we can slide sideways when stopping
     float maxSideways = .5f;
-    // Start is called before the first frame update
+
+    // For calcualting average speed of car
+    public List<float> speeds = new List<float>();
+    float speedTimer;
 
     public Rigidbody2D car;
 
@@ -37,7 +40,8 @@ public class CarController : MonoBehaviour
 
     public bool playerStopped = false;
     public bool playerHitWall = false;
-    public bool playerHitCheckPoint = false;
+    CarCheckPoint carCheckPoint;
+
 
 
     void Start(){
@@ -78,7 +82,7 @@ public class CarController : MonoBehaviour
         //Debug.Log("Father after birth");
         //c = a.population[1].Encode();
         //foreach (var item in c)
-            //Debug.Log(item); // Replace this with your version of printing
+        //Debug.Log(item); // Replace this with your version of printing
 
 
         //Debug.Log("Mother");
@@ -90,8 +94,8 @@ public class CarController : MonoBehaviour
         //Debug.Log(item); // Replace this with your version of printing
 
 
-
-
+        speedTimer = .2f;
+        carCheckPoint = car.GetComponent<CarCheckPoint>();
     }
 
     // Update is called once per frame
@@ -131,12 +135,12 @@ public class CarController : MonoBehaviour
         car.velocity = ForwardVelocity() + SideVelocity() * driftFactor;
 
         // Movement
-        if (Input.GetKey(KeyCode.W) || carDrive > 0){
+        if (Input.GetKey(KeyCode.W) || carDrive > .5){
             // Go forward
             car.AddForce(transform.up * acceleration);
 
         }
-        if (Input.GetKey(KeyCode.S) || carDrive <= 0){
+        if (Input.GetKey(KeyCode.S) || carDrive <= .5){
             // Go Backwards
             car.velocity = car.velocity * .99f;
         }
@@ -145,7 +149,15 @@ public class CarController : MonoBehaviour
         // Don't let car turn if stopped
         torqueForce = Mathf.Lerp(0, turnSpeed, car.velocity.magnitude / 2);
         //car.angularVelocity = Input.GetAxis("Horizontal") * torqueForce;
-        car.angularVelocity = (float)(carTurn * torqueForce);
+        car.angularVelocity = (float)((carTurn - .8) * torqueForce);
+
+        // calcuate speed every 1 second
+        speedTimer += Time.deltaTime;
+        if (speedTimer > 1)
+        {
+            CalculateSpeed();
+            speedTimer = 0;
+        }
     }
 
     // Returns our velocity on the forward direction
@@ -166,8 +178,40 @@ public class CarController : MonoBehaviour
         if (other.gameObject.tag == "CheckPoint"){
             return;
         }
-        Debug.Log("Player hit Wall");
+        ///Debug.Log("Player hit Wall");
         playerHitWall = true;
        
+    }
+
+    public void ResetPosition(){
+        this.car.velocity = Vector2.zero;
+        this.carDrive = 0;
+        this.carTurn = 0;
+        this.car.position = new Vector3(-21f,6.8f,-1f);
+        this.car.rotation = -22f;
+        playerHitWall = false;
+        hitCheckPoint = false;
+        speeds.Clear();
+        speedTimer = 999;
+        this.carCheckPoint.nextCheckpoint = 0;
+        this.playerStopped = false;
+
+    }
+
+
+    void CalculateSpeed(){
+        float speed = car.velocity.magnitude;
+        speeds.Add(speed);
+    }
+
+    public float GetAverageSpeed() {
+        float averageTotal = 0;
+
+        for (int i = 0; i < speeds.Count; i++){
+
+            averageTotal += speeds[i];
+        }
+
+        return averageTotal / speeds.Count;
     }
 }
