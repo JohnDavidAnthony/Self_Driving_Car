@@ -18,7 +18,7 @@ public class GeneticController
 
         for (int i = 0; i < popSize; i++){
             // Create NN with specific structure
-            this.population.Add(new NeuralNetwork(.5,new int[] {6,20,2}));
+            this.population.Add(new NeuralNetwork(.5,new int[] {6,5,2}));
         }
     }
 

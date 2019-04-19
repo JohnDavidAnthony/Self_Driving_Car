@@ -1,54 +1,6 @@
-Base path: /Applications/Unity/Unity.app/Contents
+Base path: /Applications/Unity/Hub/Editor/2019.1.0f2/Unity.app/Contents
 Cmd: initializeCompiler
-Cmd: compileComputeKernel
-  api=14 insize=7985 outsize=2861 ok=1
-Cmd: compileComputeKernel
-  api=14 insize=7985 outsize=2641 ok=1
-Cmd: translateComputeKernel
-  api=14 insize=3077 outsize=3749 ok=1
-Cmd: compileComputeKernel
-  api=14 insize=4264 outsize=2813 ok=1
-Cmd: translateComputeKernel
-  api=14 insize=2809 outsize=4145 ok=1
-Cmd: translateComputeKernel
-  api=14 insize=4537 outsize=8145 ok=1
-Cmd: compileComputeKernel
-  api=14 insize=21333 outsize=4565 ok=1
-Cmd: compileComputeKernel
-  api=14 insize=21333 outsize=2785 ok=1
-Cmd: compileComputeKernel
-  api=14 insize=21333 outsize=2777 ok=1
-Cmd: compileComputeKernel
-  api=14 insize=21333 outsize=3377 ok=1
-Cmd: translateComputeKernel
-  api=14 insize=3753 outsize=5225 ok=1
-Cmd: translateComputeKernel
-  api=14 insize=3021 outsize=3173 ok=1
-Cmd: translateComputeKernel
-  api=14 insize=3629 outsize=4537 ok=1
-Cmd: translateComputeKernel
-  api=14 insize=3725 outsize=4421 ok=1
-Cmd: compileComputeKernel
-  api=14 insize=14905 outsize=2153 ok=1
-Cmd: compileComputeKernel
-  api=14 insize=14905 outsize=2157 ok=1
-Cmd: compileComputeKernel
-  api=14 insize=14905 outsize=2233 ok=1
-Cmd: compileComputeKernel
-  api=14 insize=14905 outsize=2565 ok=1
-Cmd: translateComputeKernel
-  api=14 insize=2345 outsize=2997 ok=1
-Cmd: translateComputeKernel
-  api=14 insize=2201 outsize=2941 ok=1
-Cmd: translateComputeKernel
-  api=14 insize=2193 outsize=2769 ok=1
-Cmd: initializeCompiler
-Cmd: initializeCompiler
-Cmd: initializeCompiler
-Cmd: initializeCompiler
-Cmd: initializeCompiler
-Cmd: initializeCompiler
-Cmd: initializeCompiler
-Cmd: initializeCompiler
+Cmd: compileSnippet
+  api=14 type=1 insize=2295 outsize=1046 kw= pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_USE_DITHER_MASK_FOR_ALPHABLENDED_SHADOWS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING UNITY_ENABLE_DETAIL_NORMALMAP SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA UNITY_LIGHT_PROBE_PROXY_VOLUME UNITY_LIGHTMAP_FULL_HDR ok=1
 
 Quitting shader compiler process

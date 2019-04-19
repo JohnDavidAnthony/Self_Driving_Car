@@ -66,6 +66,10 @@ public class NeuralNetwork
     public double Sigmoid(double x){
         return 1 / (1 + Math.Exp(-x));
     }
+    double tanh(double x)
+    {
+        return System.Math.Tanh(x);
+    }
 
     // Encode Neural network into a chromosome that we can evolve
     public List<double> Encode(){
@@ -136,10 +140,16 @@ public class NeuralNetwork
                     neuron.value = 0;
                     for (int lastNeuron = 0; lastNeuron < this.layers[l - 1].neurons.Count; lastNeuron++){
                         neuron.value += this.layers[l - 1].neurons[lastNeuron].value * neuron.dendrites[lastNeuron].weight;
-
-                        // Call activation fxn
-                        neuron.value = Sigmoid(neuron.value + neuron.bias);
                     }
+
+                    // Call activation fxn
+                    if (l != layers.Count - 1){
+                        neuron.value = tanh(neuron.value + neuron.bias);
+                    }
+                    else{
+                        neuron.value = tanh(neuron.value + neuron.bias);
+                    }
+
                 } // End if
 
             }// End inner for

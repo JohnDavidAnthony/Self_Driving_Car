@@ -7,6 +7,8 @@ public class Layer
 {
     public List<Neuron> neurons;
 
+    public object Neurons { get; internal set; }
+
     public int NumNeurons(){
         return neurons.Count;
     }

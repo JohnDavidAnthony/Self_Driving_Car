@@ -18,8 +18,8 @@ public class Neuron
 
     // Constructor
     public Neuron(){
-        System.Random n = new Random(Environment.TickCount);
-        this.bias = n.NextDouble();
+        //System.Random n = new Random(Environment.TickCount);
+        this.bias = UnityEngine.Random.Range(-1f, 1f);
 
         this.dendrites = new List<Dendrite>();
     }

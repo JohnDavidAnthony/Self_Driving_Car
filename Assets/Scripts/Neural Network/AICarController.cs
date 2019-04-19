@@ -10,8 +10,8 @@ public class AICarController : MonoBehaviour
     // How important it is to stay in the middle of the track
     public float sensorMultiplyer = .05f;
     private Vector3 lastPosition;
-    private float distanceTraveled;
-    private float avgSpeed;
+    public float distanceTraveled;
+    public float avgSpeed;
     private float timeElapsed;
     private float avgSensor;
 
@@ -33,6 +33,7 @@ public class AICarController : MonoBehaviour
         timer = 60f;
         ready = true;
         timeElapsed = .0001f;
+        lastPosition = this.controller.car.position;
     }
 
     // Update is called once per frame
@@ -41,12 +42,12 @@ public class AICarController : MonoBehaviour
         }
         // Get input from environmemnt
         List<double> input = new List<double>();
-        input.Add(controller.leftSensor.distance);
-        input.Add(controller.frontLeftSensor.distance);
-        input.Add(controller.frontSensor.distance);
-        input.Add(controller.frontRightSensor.distance);
-        input.Add(controller.rightSensor.distance);
-        input.Add(controller.car.velocity.magnitude);
+        input.Add(controller.leftSensor.hitNormal);
+        input.Add(controller.frontLeftSensor.hitNormal);
+        input.Add(controller.frontSensor.hitNormal);
+        input.Add(controller.frontRightSensor.hitNormal);
+        input.Add(controller.rightSensor.hitNormal);
+        input.Add(controller.speedNormal);
        
         // Apply input to NN
         double[] output = species.population[currentGenome].run(input);

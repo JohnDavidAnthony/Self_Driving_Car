@@ -7,9 +7,9 @@ public class CarController : MonoBehaviour
 {
 
     // Car properties
-    float acceleration = 15f;
+    float acceleration = 5f;
     float deacceleration = 10f;
-    float turnSpeed = 200f;
+    float turnSpeed = 100f;
     // The type of drift we are used to 
     float driftSpeedMoving = .9f;
     // How fast we drift when we let off the gas and are headed sideways
@@ -30,6 +30,9 @@ public class CarController : MonoBehaviour
     public CarSensors frontRightSensor;
     public CarSensors leftSensor;
     public CarSensors rightSensor;
+
+    public float speedNormal;
+
     public bool hitCheckPoint = false;
 
     float torqueForce = 0;
@@ -96,6 +99,7 @@ public class CarController : MonoBehaviour
 
         speedTimer = .2f;
         carCheckPoint = car.GetComponent<CarCheckPoint>();
+        this.car.position = new Vector3(-21f, 6.8f, -1f);
     }
 
     // Update is called once per frame
@@ -104,6 +108,9 @@ public class CarController : MonoBehaviour
     void FixedUpdate()
     {
         car = GetComponent<Rigidbody2D>();
+        speedNormal = car.velocity.magnitude / acceleration;
+
+        //Debug.Log(frontSensor.hitNormal);
 
 
         float delay = 5f;
@@ -135,12 +142,12 @@ public class CarController : MonoBehaviour
         car.velocity = ForwardVelocity() + SideVelocity() * driftFactor;
 
         // Movement
-        if (Input.GetKey(KeyCode.W) || carDrive > .5){
+        if (Input.GetKey(KeyCode.W) || carDrive >0){
             // Go forward
             car.AddForce(transform.up * acceleration);
 
         }
-        if (Input.GetKey(KeyCode.S) || carDrive <= .5){
+        if (Input.GetKey(KeyCode.S) || carDrive <= 0){
             // Go Backwards
             car.velocity = car.velocity * .99f;
         }
@@ -149,7 +156,7 @@ public class CarController : MonoBehaviour
         // Don't let car turn if stopped
         torqueForce = Mathf.Lerp(0, turnSpeed, car.velocity.magnitude / 2);
         //car.angularVelocity = Input.GetAxis("Horizontal") * torqueForce;
-        car.angularVelocity = (float)((carTurn - .8) * torqueForce);
+        car.angularVelocity = (float)((carTurn) * torqueForce);
 
         // calcuate speed every 1 second
         speedTimer += Time.deltaTime;
