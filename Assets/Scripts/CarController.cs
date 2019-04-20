@@ -8,7 +8,7 @@ public class CarController : MonoBehaviour
 
     // Car properties
     float acceleration = 5f;
-    float deacceleration = 10f;
+    float deacceleration = -3f;
     float turnSpeed = 100f;
     // The type of drift we are used to 
     float driftSpeedMoving = .9f;
@@ -43,7 +43,7 @@ public class CarController : MonoBehaviour
 
     public bool playerStopped = false;
     public bool playerHitWall = false;
-    CarCheckPoint carCheckPoint;
+    public CarCheckPoint carCheckPoint;
 
 
 
@@ -149,7 +149,7 @@ public class CarController : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.S) || carDrive <= 0){
             // Go Backwards
-            car.velocity = car.velocity * .99f;
+            car.AddForce(transform.up * deacceleration);
         }
 
         // Turning

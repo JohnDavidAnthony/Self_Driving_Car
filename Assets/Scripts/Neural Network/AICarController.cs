@@ -18,22 +18,29 @@ public class AICarController : MonoBehaviour
 
 
     public CarController controller;
+    public CheckPointScript checkpoints;
     public int currentGenome;
     public int currentGeneration;
     public float overallFitness;
+    public float lastGenAvgFitness;
+
+    float lastCheckpointDistance;
     float timer;
     bool ready;
+    float movement;
 
     // Use this for initialization
     void Start(){
         // Create new species with specified genetics
-        species = new GeneticController(30, .5f);
+        species = new GeneticController(30, .8f);
         currentGenome = 0;
         currentGeneration = 1;
         timer = 60f;
         ready = true;
         timeElapsed = .0001f;
         lastPosition = this.controller.car.position;
+        lastCheckpointDistance = controller.carCheckPoint.distanceToCheckpoint;
+        lastGenAvgFitness = 0f;
     }
 
     // Update is called once per frame
@@ -74,23 +81,32 @@ public class AICarController : MonoBehaviour
             Reset();
         }
         // Check to see if player hit checkpoint
-        if (controller.hitCheckPoint){
-            species.population[currentGenome].fitness += 5;
-            controller.hitCheckPoint = false;
-        }
+        //if (controller.hitCheckPoint){
+        //    species.population[currentGenome].fitness += 5;
+        //    controller.hitCheckPoint = false;
+        //}
 
-
+        lastGenAvgFitness = species.averageFitness;
 
 
     }
 
     private void CalculateFitness(){
-        distanceTraveled += Vector3.Distance(controller.car.position, lastPosition);
+        // Check to see if car is moving away from checkpoint
+        movement = Vector3.Distance(controller.car.position, lastPosition) * -1;
+        if (controller.carCheckPoint.distanceToCheckpoint < lastCheckpointDistance){
+            movement *= -1;
+        }
+
+        distanceTraveled += movement;
+        avgSensor = (controller.leftSensor.hitNormal + controller.frontLeftSensor.hitNormal + controller.frontSensor.hitNormal + controller.frontRightSensor.hitNormal + controller.rightSensor.hitNormal) * movement / 5;
+
+        lastCheckpointDistance = controller.carCheckPoint.distanceToCheckpoint;
         lastPosition = controller.car.position;
-        timeElapsed += Time.deltaTime/Time.timeScale;
+        timeElapsed += Time.deltaTime / Time.timeScale;
         avgSpeed = distanceTraveled / timeElapsed;
         avgSensor = (controller.leftSensor.distance + controller.frontLeftSensor.distance + controller.frontSensor.distance + controller.frontRightSensor.distance + controller.rightSensor.distance) / 5;
-        overallFitness = (distanceTraveled * distanceMultiplier) + (avgSpeed * speedMultiplyer);
+        overallFitness = (distanceTraveled * distanceMultiplier) + (avgSpeed * speedMultiplyer) + (avgSensor * sensorMultiplyer);
     }
 
     void Reset(){
@@ -112,10 +128,11 @@ public class AICarController : MonoBehaviour
         this.controller.ResetPosition();
         lastPosition = this.controller.car.position;
         distanceTraveled = 0;
-        avgSpeed = 0; ;
+        avgSpeed = 0;
+        lastCheckpointDistance = controller.carCheckPoint.distanceToCheckpoint;
 
-    // Reset Timer
-    timer = 60f;
+        // Reset Timer
+        timer = 60f;
         ready = true;
     }
 

@@ -1,20 +1,23 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
+using System;
 
-public class GeneticController
+public class GeneticController 
 {
     public List<NeuralNetwork> population;
     public List<NeuralNetwork> nextGeneration;
     private double populationFitness;
     public float mutationRate;
     public float averageFitness;
+    int popSize;
 
     // Constructor creates randomly weighted neural networks
     public GeneticController(int popSize, float mutationRate){
         this.population = new List<NeuralNetwork>(popSize);
-        this.nextGeneration = new List<NeuralNetwork>();
         this.populationFitness = 0f;
         this.mutationRate = mutationRate;
+        this.averageFitness = 0f;
+        this.popSize = popSize;
 
         for (int i = 0; i < popSize; i++){
             // Create NN with specific structure
@@ -43,10 +46,16 @@ public class GeneticController
     public NeuralNetwork[] Breed(NeuralNetwork mother, NeuralNetwork father){
         NeuralNetwork child1 = new NeuralNetwork(mother.learningRate, mother.layerStructure);
         NeuralNetwork child2 = new NeuralNetwork(mother.learningRate, mother.layerStructure);
+
         List<double> motherChromosome = mother.Encode();
         List<double> fatherChromosome = father.Encode();
 
+        Debug.Log("Mother: " + String.Join(", ", motherChromosome));
+        Debug.Log("Father: " + String.Join(", ", fatherChromosome));
         Crossover(motherChromosome, fatherChromosome);
+       
+        Debug.Log("Child 1: " + String.Join(", ", motherChromosome));
+        Debug.Log("Child 2: " + String.Join(", ", fatherChromosome));
 
         child1.Decode(motherChromosome);
         child2.Decode(fatherChromosome);
@@ -58,7 +67,7 @@ public class GeneticController
     // Mutates a single gene in a creature
     public void Mutate(NeuralNetwork creature){
         List<double> chromosome = creature.Encode();
-        int geneIndex = Random.Range(0, chromosome.Count);
+        int geneIndex = UnityEngine.Random.Range(0, chromosome.Count);
         //chromosome[geneIndex] = Random.Range(0f, 1f);
         chromosome[0] = 100f;
         creature.Decode(chromosome);
@@ -67,6 +76,8 @@ public class GeneticController
 
     // Creates next generation through Roulette wheel selection
     public void NextGeneration(){
+        // Create a new generation 
+        this.nextGeneration = new List<NeuralNetwork>();
         this.populationFitness = 0f;
         // Calcualte population fitness
         for (int i = 0; i < this.population.Count; i++){
@@ -83,14 +94,13 @@ public class GeneticController
         // Sort population list by fitness ratio
         population.Sort((x, y) => y.fitnessRatio.CompareTo(x.fitnessRatio));
 
-
         // Create 2 children for every breeding of NN
         for (int i = 0; i < this.population.Count / 2; i++){
             // Select parents to breed
             int parent1Index = -1;
             int parent2Index = -1;
-            double chance = Random.Range(0f, 100f) / 100;
-            double chance2 = Random.Range(0f, 100f) / 100;
+            double chance = UnityEngine.Random.Range(0f, 100f) / 100;
+            double chance2 = UnityEngine.Random.Range(0f, 100f) / 100;
             double range = 0;
 
             //Debug.Log("Chance1: " + chance);
@@ -141,14 +151,15 @@ public class GeneticController
             NeuralNetwork[] children = Breed(population[parent1Index], population[parent2Index]);
 
             // Mutate 1st child chance
-            chance = Random.Range(0f, 1f);
+            chance = UnityEngine.Random.Range(0f, 1f);
             if (chance < this.mutationRate){
+                Debug.Log("Mutated");
                 Mutate(children[0]);
             }
             // Mutate 2nd child chance
-            chance = Random.Range(0f, 1f);
-            if (chance < this.mutationRate)
-            {
+            chance = UnityEngine.Random.Range(0f, 1f);
+            if (chance < this.mutationRate){
+                Debug.Log("Mutated");
                 Mutate(children[1]);
             }
 
@@ -158,7 +169,9 @@ public class GeneticController
         } //  End foor loop -- Breeding
 
         // Make the children adults
-        for (int i = 0; i < population.Count; i++){
+        Debug.Log(nextGeneration.Count);
+        for (int i = 0; i < popSize; i++){
+            Debug.Log(i);
             population[i] = nextGeneration[i];
         }
 
