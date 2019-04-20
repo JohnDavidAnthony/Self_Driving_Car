@@ -67,6 +67,7 @@
     <Compile Include="Assets\Scripts\CarController.cs" />
     <Compile Include="Assets\Scripts\CarSensors.cs" />
     <Compile Include="Assets\Scripts\CheckPointScript.cs" />
+    <Compile Include="Assets\Scripts\HumanCarController.cs" />
     <Compile Include="Assets\Scripts\Neural Network\AICarController.cs" />
     <Compile Include="Assets\Scripts\Neural Network\CryptoRandom.cs" />
     <Compile Include="Assets\Scripts\Neural Network\Dendrite.cs" />

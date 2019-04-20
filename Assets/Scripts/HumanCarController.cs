@@ -3,20 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class CarController : MonoBehaviour
+public class HumanCarController : MonoBehaviour
 {
 
     // Car properties
     public float acceleration = 5f;
-    public float deacceleration = 3f;
+    public float deacceleration = -3f;
     public float turnSpeed = 100f;
     public float speed;
     float torqueForce = 0;
     public CarCheckPoint carCheckPoint;
     Vector3 startingPos;
     float carRotation;
-    float idleTime = 5f;
-    float timeLeft = 0;
 
 
     // How much the car "normally drifts"
@@ -38,11 +36,7 @@ public class CarController : MonoBehaviour
     public bool playerStopped;
     public bool playerHitWall;
     public bool hitCheckPoint;
-    bool timerStarted;
 
-    // Input from NN 
-    public float carDrive;
-    public float carTurn;
 
     void Start(){
         // Get the checkpoints
@@ -52,32 +46,14 @@ public class CarController : MonoBehaviour
         hitCheckPoint = false;
         startingPos = car.position;
         carRotation = car.rotation;
-        timerStarted = false;
 
-    }
+}
 
-    void FixedUpdate(){
+
+    void FixedUpdate()
+    {
+        car = GetComponent<Rigidbody2D>();
         speed = car.velocity.magnitude;
-
-
-        // Check to see if car hasnt moved
-        if (car.velocity.magnitude < .05f){
-            // If timer is already going add to it
-            if (timerStarted){
-                timeLeft += Time.deltaTime;
-                if (timeLeft > idleTime){
-                    // Been idle for to long
-                    Debug.Log("Player Stopped Moving");
-                    playerStopped = true;
-                    timerStarted = false;
-                    timeLeft = 0;
-                }
-            }
-            // Otherwise start timer
-            else{
-                timerStarted = true;
-            }
-        }
 
         // How fast we drift
         float driftFactor = driftSpeedStatic;
@@ -88,12 +64,12 @@ public class CarController : MonoBehaviour
         car.velocity = ForwardVelocity() + SideVelocity() * driftFactor;
 
         // Movement
-        if (carDrive >0){
+        if (Input.GetKey(KeyCode.W)){
             // Go forward
             car.AddForce(transform.up * acceleration);
 
         }
-        if (Input.GetKey(KeyCode.S) || carDrive <= 0){
+        if (Input.GetKey(KeyCode.S)){
             // Go Backwards
             car.AddForce(transform.up * deacceleration);
         }
@@ -101,8 +77,7 @@ public class CarController : MonoBehaviour
         // Turning
         // Don't let car turn if stopped
         torqueForce = Mathf.Lerp(0, turnSpeed, car.velocity.magnitude / 2);
-        //car.angularVelocity = Input.GetAxis("Horizontal") * torqueForce;
-        car.angularVelocity = (float)((carTurn) * torqueForce);
+        car.angularVelocity = Input.GetAxis("Horizontal") * torqueForce;
 
     }
 
@@ -134,12 +109,10 @@ public class CarController : MonoBehaviour
         this.car.position = startingPos;
         this.car.rotation = carRotation;
         this.carCheckPoint.nextCheckpoint = 0;
-        timeLeft = 0;
 
         playerStopped = false;
         playerHitWall = false;
         hitCheckPoint = false;
-        timerStarted = false;
 
     }
 

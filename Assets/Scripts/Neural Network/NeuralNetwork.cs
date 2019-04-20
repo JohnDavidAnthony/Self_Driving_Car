@@ -8,7 +8,6 @@ using System.Runtime.Serialization.Formatters.Binary;
 public class NeuralNetwork
 {
     public List<Layer> layers;
-    public double learningRate;
     // The number of neurons in each layer
     public int[] layerStructure;
     public float fitness;
@@ -20,13 +19,12 @@ public class NeuralNetwork
     }
 
     // Constructor
-    public NeuralNetwork(double learningRate, int[] layers){
+    public NeuralNetwork(int[] layers){
         // We must have at least 2 layers (input, output)
         if (layers.Length < 2){
             return;
         }
 
-        this.learningRate = learningRate;
         this.layers = new List<Layer>();
         this.layerStructure = layers;
         this.fitness = 0f;
@@ -62,29 +60,16 @@ public class NeuralNetwork
         }
     }// End Cosntructor
 
-    // Define signmoid activation fxn
+    // Activation Functions
     public double Sigmoid(double x){
         return 1 / (1 + Math.Exp(-x));
     }
-    double tanh(double x)
-    {
+    double Tanh(double x){
         return System.Math.Tanh(x);
     }
 
     // Encode Neural network into a chromosome that we can evolve
     public List<double> Encode(){
-        //// Calculate how long our chromosome will be
-        //int lengthList = 0;
-        //// First (input) layer we don't include bias or weights
-        //// Every other layer (except output) we include bias + weight
-        //for (int i = 1; i < this.layerStructure.Length - 1; i++){
-        //    // Add room for biases
-        //    lengthList += this.layerStructure[i];
-        //    // Add room for weights
-        //    lengthList += this.layerStructure[i - 1] * this.layerStructure[i];
-        //}
-        //// Last (output) we add room for its biases
-        //lengthList += this.layerStructure[this.layerStructure.Length - 1];
 
         List<double> chromosome = new List<double>();
         // Get data from NN for chromosome
@@ -120,7 +105,7 @@ public class NeuralNetwork
     }
 
     // Run the NN
-    public double[] run(List<double> input){
+    public double[] Run(List<double> input){
         // Check to see if input is right size
         if (input.Count != this.layers[0].neurons.Count){
             return null;
@@ -136,7 +121,8 @@ public class NeuralNetwork
                 // if first layer pass in input
                 if (l == 0){
                     neuron.value = input[n];
-                }else{ // Get input from neurons before it and apply weights
+                }else{ 
+                    // Get wieghted value from all neruons connected to it
                     neuron.value = 0;
                     for (int lastNeuron = 0; lastNeuron < this.layers[l - 1].neurons.Count; lastNeuron++){
                         neuron.value += this.layers[l - 1].neurons[lastNeuron].value * neuron.dendrites[lastNeuron].weight;
@@ -144,28 +130,23 @@ public class NeuralNetwork
 
                     // Call activation fxn
                     if (l != layers.Count - 1){
-                        neuron.value = tanh(neuron.value + neuron.bias);
+                        neuron.value = Sigmoid(neuron.value + neuron.bias);
                     }
                     else{
-                        neuron.value = tanh(neuron.value + neuron.bias);
+                        neuron.value = Tanh(neuron.value + neuron.bias);
                     }
-
                 } // End if
-
             }// End inner for
-
         }// End outter for
 
-        // Get output layer
+        // Return output
         Layer lastLayer = this.layers[this.layers.Count - 1];
         int numOutput = lastLayer.neurons.Count;
         double[] output = new double[numOutput];
-        // Add output to layer
         for (int i = 0; i < numOutput; i++){
             output[i] = lastLayer.neurons[i].value;
         }
         return output;
-
     }// End run
 
 }

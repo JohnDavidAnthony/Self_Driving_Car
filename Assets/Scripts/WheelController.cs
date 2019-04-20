@@ -9,8 +9,7 @@ public class WheelController : MonoBehaviour{
     public CarController aicar;
     // Update is called once per frame
     void Update(){
-        //car = GetComponent<Rigidbody2D>();
-        steerAngle = Input.GetAxis("Horizontal") * maxSteerAngle + car.rotation * aicar.AITurn;
+        steerAngle = maxSteerAngle * aicar.carTurn + car.rotation;
     }
 
     void LateUpdate(){
