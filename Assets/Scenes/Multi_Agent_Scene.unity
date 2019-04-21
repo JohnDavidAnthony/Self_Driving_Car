@@ -3122,6 +3122,7 @@ GameObject:
   - component: {fileID: 1445036235}
   - component: {fileID: 1445036234}
   - component: {fileID: 1445036233}
+  - component: {fileID: 1445036237}
   m_Layer: 5
   m_Name: UI
   m_TagString: Untagged
@@ -3212,6 +3213,26 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1445036237
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1445036232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32ce3cbe927854cb6a8a3aebfe421f8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controller: {fileID: 744794016}
+  genome: {fileID: 542236164}
+  generation: {fileID: 422336920}
+  fitness: {fileID: 771566576}
+  timeScale: {fileID: 194003969}
+  slider: {fileID: 1751218355}
+  averageFitness: {fileID: 374935617}
+  bestFitness: {fileID: 2024448488}
 --- !u!1 &1513829134
 GameObject:
   m_ObjectHideFlags: 0
