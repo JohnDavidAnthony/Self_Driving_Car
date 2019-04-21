@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
-using System;
 
 public class GeneticController 
 {
@@ -9,6 +8,7 @@ public class GeneticController
     private double populationFitness;
     public float mutationRate;
     public float averageFitness;
+    public float bestFitness;
     int popSize;
 
     // Constructor creates randomly weighted neural networks
@@ -18,6 +18,7 @@ public class GeneticController
         this.mutationRate = mutationRate;
         this.averageFitness = 0f;
         this.popSize = popSize;
+        bestFitness = 0;
 
         for (int i = 0; i < popSize; i++){
             // Create NN with specific structure
@@ -164,7 +165,8 @@ public class GeneticController
         for (int i = 0; i < popSize; i++){
             population[i] = nextGeneration[i];
         }
+    }// End NextGeneration()
 
-    }
+
 
 }

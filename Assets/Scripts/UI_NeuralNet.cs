@@ -12,6 +12,7 @@ public class UI_NeuralNet : MonoBehaviour
     public Text timeScale;
     public Slider slider;
     public Text averageFitness;
+    public Text bestFitness;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,6 +28,7 @@ public class UI_NeuralNet : MonoBehaviour
         fitness.text = "Current Fitness: " + controller.overallFitness;
         timeScale.text = "Timescale: " + slider.value + "x";
         averageFitness.text = "Last Gen Average Fitness: " + controller.lastGenAvgFitness;
+        bestFitness.text = "Best Fitness: " + controller.bestPopFitness; 
 
     }
 }

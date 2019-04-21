@@ -21,7 +21,8 @@ public class AICarController : MonoBehaviour
     public float timeElapsed;
     private float avgSensor;
     float timer = 0;
-    float bestFitness = 0;
+    public float bestFitness = 0;
+    public float bestPopFitness = 0;
 
     // Genetic Properties
     public int currentGenome;
@@ -108,7 +109,7 @@ public class AICarController : MonoBehaviour
         lastPosition = controller.car.position;
 
         // Calcualte avg speed
-        timeElapsed += Time.deltaTime;
+        timeElapsed += Time.deltaTime ;
         avgSpeed = distanceTraveled / timeElapsed;
 
         // Calcualte overall fitness
@@ -128,6 +129,9 @@ public class AICarController : MonoBehaviour
         if (this.currentGenome == 0){
             currentGeneration++;
             species.NextGeneration();
+            //ToDO Remove this
+            //Save best of the generation
+            species.population[0].Save();
             lastGenAvgFitness = species.averageFitness;
         }
 
@@ -138,6 +142,10 @@ public class AICarController : MonoBehaviour
         timeElapsed = 0;
         lastCheckpointDistance = controller.carCheckPoint.distanceToCheckpoint;
         timer = 10f;
+        // Update best Fitness
+        if (overallFitness > bestPopFitness){
+            bestPopFitness = overallFitness;
+        }
         bestFitness = 0f;
 
     }

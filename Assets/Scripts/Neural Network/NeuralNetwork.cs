@@ -18,7 +18,7 @@ public class NeuralNetwork
 
     }
 
-    // Constructor
+    // Constructor creates a random NN with specified layer structure 
     public NeuralNetwork(int[] layers){
         // We must have at least 2 layers (input, output)
         if (layers.Length < 2){
@@ -47,10 +47,6 @@ public class NeuralNetwork
                 if (i == 0){
                     neuron.bias = 0;
                 }else{
-                    if (i == layers.Length - 1){ // Last layer set bias to .5 --- Only for my setup remove otherwise
-                        //neuron.bias = 0;
-                    }
-
                     // For each neuron create dendrite to other neurons
                     for (int d = 0; d < layers[i - 1]; d++){
                         neuron.dendrites.Add(new Dendrite());
@@ -59,6 +55,36 @@ public class NeuralNetwork
             }
         }
     }// End Cosntructor
+
+    // Constructor reads in a specified filename and creates a NN from the 
+    // Encoded String
+    public NeuralNetwork(String fileName){
+        string[] lines = File.ReadAllLines(fileName);
+        // Get network structure
+        string[] structure = lines[0].Split(new char[] { ',' });
+        int[] numStrucutre = new int[structure.Length];
+        for (int i = 0; i < structure.Length; i++){
+            numStrucutre[i] = System.Convert.ToInt32(structure[i]);
+        }
+
+        // Make a Neural Net with those specifications
+        NeuralNetwork NN = new NeuralNetwork(numStrucutre);
+
+        // Get the encoded value
+        string[] element = lines[1].Split(new char[] { ',' });
+        List<Double> encoded = new List<double>();
+        for (int i = 0; i < element.Length; i++){
+            encoded.Add(Convert.ToDouble(element[i]));
+
+        }
+
+        //Update our NN with the value
+        NN.Decode(encoded);
+        this.layers = NN.layers;
+        this.layerStructure = NN.layerStructure;
+        this.fitness = 0f;
+        this.fitnessRatio = 0f;
+    }
 
     // Activation Functions
     public double Sigmoid(double x){
@@ -148,6 +174,27 @@ public class NeuralNetwork
         }
         return output;
     }// End run
+
+    // Saves the encoded genes to a file
+    public void Save(){
+        StreamWriter write = new StreamWriter("./nn" + (int)this.fitness + ".txt", true);
+
+        // Write out layer structure
+        for (int i = 0; i < layerStructure.Length-1; i++){
+            write.Write(layerStructure[i] + ", ");
+        }
+        write.Write(layerStructure[layerStructure.Length - 1] + "\n");
+
+        // Write out encode NN
+        List<double> encoded = this.Encode();
+        for (int i = 0; i < encoded.Count - 1; i++)
+        {
+            write.Write(encoded[i] + ", ");
+        }
+        write.Write(encoded[encoded.Count - 1]);
+
+        write.Close();
+    }
 
 }
 
