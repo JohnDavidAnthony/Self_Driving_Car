@@ -17,7 +17,7 @@ public class CarController : MonoBehaviour
     float carRotation;
     float idleTime = 5f;
     float timeLeft = 0;
-
+    int firstCheckpoint;
 
     // How much the car "normally drifts"
     float driftSpeedMoving = .9f;
@@ -53,6 +53,7 @@ public class CarController : MonoBehaviour
         startingPos = car.position;
         carRotation = car.rotation;
         timerStarted = false;
+        firstCheckpoint = carCheckPoint.nextCheckpoint;
 
     }
 
@@ -133,7 +134,7 @@ public class CarController : MonoBehaviour
         this.car.velocity = Vector2.zero;
         this.car.position = startingPos;
         this.car.rotation = carRotation;
-        this.carCheckPoint.nextCheckpoint = 0;
+        this.carCheckPoint.nextCheckpoint = firstCheckpoint;
         timeLeft = 0;
 
         playerStopped = false;

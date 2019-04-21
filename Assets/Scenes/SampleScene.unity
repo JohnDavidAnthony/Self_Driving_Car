@@ -1182,7 +1182,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -21.7, y: 6.5, z: -10}
+  m_LocalPosition: {x: -71.2, y: -38.7, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2001,21 +2001,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eed9bd531184248da930795d9aefc9e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speeds: []
+  acceleration: 5
+  deacceleration: -3
+  turnSpeed: 100
+  speed: 0
+  carCheckPoint: {fileID: 0}
   car: {fileID: 744794010}
   frontSensor: {fileID: 1072791171}
   frontLeftSensor: {fileID: 437116890}
   frontRightSensor: {fileID: 297594898}
   leftSensor: {fileID: 1272927227}
   rightSensor: {fileID: 960830053}
-  speedNormal: 0
-  hitCheckPoint: 0
-  AITurn: 1
-  carDrive: 0
-  carTurn: 0
   playerStopped: 0
   playerHitWall: 0
-  carCheckPoint: {fileID: 0}
+  hitCheckPoint: 0
+  carDrive: 0
+  carTurn: 0
 --- !u!212 &744794013
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2071,8 +2072,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 744794009}
-  m_LocalRotation: {x: -0, y: -0, z: -0.19655667, w: 0.98049253}
-  m_LocalPosition: {x: -21, y: 6.8, z: -1}
+  m_LocalRotation: {x: -0, y: -0, z: -0.85209286, w: 0.5233907}
+  m_LocalPosition: {x: -70.30092, y: -38.740273, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 0}
   m_Children:
   - {fileID: 2116686404}
@@ -2082,7 +2083,7 @@ Transform:
   - {fileID: 666570058}
   m_Father: {fileID: 0}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -22.671001}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -116.880005}
 --- !u!114 &744794015
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2120,7 +2121,7 @@ MonoBehaviour:
   - {fileID: 118619518}
   - {fileID: 403820269}
   - {fileID: 1281456926}
-  nextCheckpoint: 1
+  nextCheckpoint: 18
   currentLap: 0
   distanceToCheckpoint: 0
   checkPointText: {fileID: 2120431415}
@@ -2139,10 +2140,11 @@ MonoBehaviour:
   distanceMultiplier: 1.4
   speedMultiplyer: 0.4
   sensorMultiplyer: 0.1
-  distanceTraveled: 0
-  avgSpeed: 0
   controller: {fileID: 744794012}
   checkpoints: {fileID: 0}
+  distanceTraveled: 0
+  avgSpeed: 0
+  timeElapsed: 0
   currentGenome: 0
   currentGeneration: 0
   overallFitness: 0

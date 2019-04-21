@@ -8,9 +8,9 @@ public class AICarController : MonoBehaviour
     GeneticController species;
 
     // Fitness function
-    public float distanceMultiplier = 1.4f;
-    public float speedMultiplyer = .4f;
-    public float sensorMultiplyer = .05f; // How important it is to stay in the middle of the track
+    public float distanceMultiplier = 2f;
+    public float speedMultiplyer = .6f;
+    public float sensorMultiplyer = .4f; // How important it is to stay in the middle of the track
 
     // Car properties
     public CarController controller;
@@ -18,8 +18,10 @@ public class AICarController : MonoBehaviour
     private Vector3 lastPosition;
     public float distanceTraveled;
     public float avgSpeed;
-    private float timeElapsed;
+    public float timeElapsed;
     private float avgSensor;
+    float timer = 0;
+    float bestFitness = 0;
 
     // Genetic Properties
     public int currentGenome;
@@ -34,7 +36,7 @@ public class AICarController : MonoBehaviour
 
     void Start(){
         // Create new species with specified genetics
-        species = new GeneticController(40, .5f);
+        species = new GeneticController(200, .05f);
         currentGenome = 0;
         currentGeneration = 1;
         timeElapsed = 0;
@@ -62,11 +64,18 @@ public class AICarController : MonoBehaviour
 
         CalculateFitness();
 
-        // Check to see if player is out of time or hit wall 
-        //timer -= Time.deltaTime;
-        //if (timer < 0){
-        //    Reset();
-        //}
+        // Check to see if player hit wall or stopped progressing
+        // If fitness stopped improving end creature
+        if (bestFitness > overallFitness){
+            timer -= Time.deltaTime;
+            if (timer <= 0){
+                Reset();
+            }
+        }else{
+            bestFitness = overallFitness;
+            timer = 10f;
+        }
+
         if (controller.playerHitWall){
             Reset();
         }
@@ -99,7 +108,7 @@ public class AICarController : MonoBehaviour
         lastPosition = controller.car.position;
 
         // Calcualte avg speed
-        timeElapsed += Time.deltaTime / Time.timeScale;
+        timeElapsed += Time.deltaTime;
         avgSpeed = distanceTraveled / timeElapsed;
 
         // Calcualte overall fitness
@@ -128,6 +137,8 @@ public class AICarController : MonoBehaviour
         distanceTraveled = 0;
         timeElapsed = 0;
         lastCheckpointDistance = controller.carCheckPoint.distanceToCheckpoint;
+        timer = 10f;
+        bestFitness = 0f;
 
     }
 

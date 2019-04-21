@@ -21,7 +21,7 @@ public class GeneticController
 
         for (int i = 0; i < popSize; i++){
             // Create NN with specific structure
-            this.population.Add(new NeuralNetwork(new int[] {6,8,4,6,2}));
+            this.population.Add(new NeuralNetwork(new int[] {6,5,2}));
         }
     }
 
@@ -58,11 +58,17 @@ public class GeneticController
         return new NeuralNetwork[] {child1, child2};
     }
 
-    // Mutates a single gene in a creature
+    // Mutates creatire
     public void Mutate(NeuralNetwork creature){
         List<double> chromosome = creature.Encode();
-        int geneIndex = UnityEngine.Random.Range(0, chromosome.Count);
-        chromosome[geneIndex] = UnityEngine.Random.Range(0f, 1f);
+        // for each gene in creature mutate with small chance
+        for (int i = 0; i < chromosome.Count; i++) {
+            if (this.mutationRate > UnityEngine.Random.Range(0f, 1f)){
+                Debug.Log("Mutate");
+                chromosome[i] = UnityEngine.Random.Range(-1f, 1f);
+            }
+        }
+
         creature.Decode(chromosome);
 
     }
@@ -140,19 +146,14 @@ public class GeneticController
             }
 
             //Breed the two selected parents and add them to the next generation
-            //Debug.Log("Breeding: " + parent1Index + " and " + parent2Index);
+            Debug.Log("Breeding: " + parent1Index + " with fitness " + population[parent1Index].fitness);
+            Debug.Log("and " + parent2Index + " with fitness " + population[parent2Index].fitness);
+
             NeuralNetwork[] children = Breed(population[parent1Index], population[parent2Index]);
 
-            // Mutate 1st child chance
-            chance = UnityEngine.Random.Range(0f, 1f);
-            if (chance < this.mutationRate){
-                Mutate(children[0]);
-            }
-            // Mutate 2nd child chance
-            chance = UnityEngine.Random.Range(0f, 1f);
-            if (chance < this.mutationRate){
-                Mutate(children[1]);
-            }
+            // Mutate children
+            Mutate(children[0]);
+            Mutate(children[1]);
 
             // Add the children to the next generation
             nextGeneration.Add(children[0]);
