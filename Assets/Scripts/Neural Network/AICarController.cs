@@ -131,7 +131,7 @@ public class AICarController : MonoBehaviour
             species.NextGeneration();
             //ToDO Remove this
             //Save best of the generation
-            species.population[0].Save();
+
             lastGenAvgFitness = species.averageFitness;
         }
 

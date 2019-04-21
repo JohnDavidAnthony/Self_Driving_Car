@@ -28,15 +28,22 @@ public class GeneticController
 
     // Cross over the chromosomes
     public void Crossover(List<double> mother, List<double> father){
-        int middle = Mathf.FloorToInt(mother.Count / 2);
         List<double> tempM = new List<double>();
         List<double> tempF = new List<double>();
-        for (int i = 0; i < middle; i++){
-            tempM.Add(mother[i]);
-            tempF.Add(father[i]);
+        for (int i = 0; i < mother.Count; i++){
+            // Swap Genes
+            if (UnityEngine.Random.Range(0, 1f) > .5){
+                tempM.Add(father[i]);
+                tempF.Add(mother[i]);
+            }else{ // Don't swap genes
+                tempM.Add(mother[i]);
+                tempF.Add(father[i]);
+            }
+
+
         }
-        mother.RemoveRange(0, middle);
-        father.RemoveRange(0, middle);
+        mother.RemoveRange(0, mother.Count);
+        father.RemoveRange(0, mother.Count);
 
         mother.InsertRange(0, tempF);
         father.InsertRange(0, tempM);
@@ -95,6 +102,10 @@ public class GeneticController
 
         // Sort population list by fitness ratio
         population.Sort((x, y) => y.fitnessRatio.CompareTo(x.fitnessRatio));
+        population[0].Save();
+
+        //Save the best creature for next gen
+        nextGeneration.Add(population[0]);
 
         // Create 2 children for every breeding of NN
         for (int i = 0; i < this.population.Count / 2; i++){
