@@ -72,9 +72,11 @@ public class NeuralNetwork
 
         // Get the encoded value
         string[] element = lines[1].Split(new char[] { ',' });
+
         List<Double> encoded = new List<double>();
         for (int i = 0; i < element.Length; i++){
             encoded.Add(Convert.ToDouble(element[i]));
+            Debug.Log(encoded[i]);
 
         }
 

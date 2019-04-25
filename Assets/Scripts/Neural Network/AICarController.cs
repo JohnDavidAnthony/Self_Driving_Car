@@ -116,9 +116,11 @@ public class AICarController : MonoBehaviour
         controller.carDrive = 0;
         controller.car.isKinematic = true;
         controller.car.velocity = Vector3.zero;
+        // Save genome's fitness to NN
+        network.fitness = overallFitness;
     }
 
-    void Reset(){
+    public void Reset(){
         // Reset car position and get ready for next test
         this.controller.ResetPosition();
         lastPosition = this.controller.car.position;
@@ -132,5 +134,7 @@ public class AICarController : MonoBehaviour
             bestPopFitness = overallFitness;
         }
         bestFitness = 0f;
+        alive = true;
+        controller.car.isKinematic = false;
     }
 }

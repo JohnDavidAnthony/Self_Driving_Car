@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CarCamera : MonoBehaviour
+public class TargetCamera : MonoBehaviour
 {
     public Transform target;
     public float height = -1f;

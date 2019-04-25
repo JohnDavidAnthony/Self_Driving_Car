@@ -64,7 +64,7 @@ public class CarController : MonoBehaviour
                 timeLeft += Time.deltaTime;
                 if (timeLeft > idleTime){
                     // Been idle for to long
-                    Debug.Log("Player Stopped Moving");
+                    //Debug.Log("Player Stopped Moving");
                     playerStopped = true;
                     timerStarted = false;
                     timeLeft = 0;
@@ -119,8 +119,9 @@ public class CarController : MonoBehaviour
     // Collision Detection
     private void OnTriggerEnter2D(Collider2D other){
         if (other.gameObject.tag == "CheckPoint"){
-            if (transform == carCheckPoint.checkpointArray[carCheckPoint.nextCheckpoint].transform)
+            if (other.transform == carCheckPoint.checkpointArray[carCheckPoint.nextCheckpoint].transform)
             {
+                Debug.Log("hiot a checkpiint");
                 // Car has reached next checkpoint
                 if (carCheckPoint.nextCheckpoint + 1 == carCheckPoint.checkpointArray.Length)
                 {
@@ -137,6 +138,7 @@ public class CarController : MonoBehaviour
                     hitCheckPoint = true;
                 }
             }
+            return;
         }else if(other.gameObject.tag == "Player")
         {
             return;
