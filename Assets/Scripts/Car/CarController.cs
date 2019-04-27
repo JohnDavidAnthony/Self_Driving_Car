@@ -121,7 +121,6 @@ public class CarController : MonoBehaviour
         if (other.gameObject.tag == "CheckPoint"){
             if (other.transform == carCheckPoint.checkpointArray[carCheckPoint.nextCheckpoint].transform)
             {
-                Debug.Log("hiot a checkpiint");
                 // Car has reached next checkpoint
                 if (carCheckPoint.nextCheckpoint + 1 == carCheckPoint.checkpointArray.Length)
                 {
@@ -133,7 +132,6 @@ public class CarController : MonoBehaviour
                 else
                 {
                     // We've reached another checkpoint
-                    //Debug.Log("Player hit checkpoint");
                     carCheckPoint.nextCheckpoint += 1;
                     hitCheckPoint = true;
                 }

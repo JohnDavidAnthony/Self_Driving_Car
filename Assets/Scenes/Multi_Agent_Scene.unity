@@ -953,7 +953,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   numGenomes: 200
-  numSimulate: 100
+  numSimulate: 25
   mutationRate: 0.04
   startingPos: {x: -70.30092, y: -38.74027, z: -1}
   carFab: {fileID: 7935379725953878131, guid: 0a7056976458c4409a59f5fbb2bec69d, type: 3}

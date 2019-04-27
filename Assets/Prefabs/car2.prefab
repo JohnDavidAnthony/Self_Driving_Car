@@ -449,8 +449,6 @@ MonoBehaviour:
   hitCheckPoint: 0
   carDrive: 0
   carTurn: 0
-  remove1: {fileID: 0}
-  remove2: {fileID: 0}
 --- !u!61 &7935379725953878143
 BoxCollider2D:
   m_ObjectHideFlags: 0

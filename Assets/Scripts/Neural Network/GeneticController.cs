@@ -171,7 +171,7 @@ public class GeneticController
         } //  End foor loop -- Breeding
 
         // Make the children adults
-        for (int i = 0; i < popSize; i++){
+        for (int i = 1; i < popSize; i++){
             population[i] = nextGeneration[i];
         }
     }// End NextGeneration()
