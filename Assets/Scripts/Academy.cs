@@ -20,6 +20,8 @@ public class Academy : MonoBehaviour
     public int batchSimulate;
     public int currentGeneration = 1;
     public AICarController bestCar;
+    public GameObject Network_GUI;
+    private UI_Network networkUI;
    
     void Start()
     {
@@ -27,6 +29,7 @@ public class Academy : MonoBehaviour
         species = new GeneticController(numGenomes, mutationRate);
         cars = new GameObject[numSimulate];
         carController = new AICarController[numSimulate];
+        bestCar = carController[0];
 
         CarCheckPoint checkpoint = carFab.GetComponent<CarCheckPoint>();
         checkpoint.track = track;
@@ -43,6 +46,10 @@ public class Academy : MonoBehaviour
         currentGenome = numSimulate;
         batchSimulate = numSimulate;
 
+        Network_GUI = Instantiate(Network_GUI);
+        UI_Genetics genetics = Network_GUI.GetComponentInChildren<UI_Genetics>();
+        genetics.academy = this;
+        networkUI = Network_GUI.GetComponentInChildren<UI_Network>();
     }
 
     void Update(){
@@ -59,6 +66,7 @@ public class Academy : MonoBehaviour
                     bestCar = car;
                     if (bestCar.overallFitness > bestGenomeFitness){
                         bestGenomeFitness = bestCar.overallFitness;
+                        networkUI.Display(bestCar.network);
                     }
                 }
 
