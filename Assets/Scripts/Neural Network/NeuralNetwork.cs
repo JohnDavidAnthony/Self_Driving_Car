@@ -33,7 +33,7 @@ public class NeuralNetwork
         // initalize our NN with layers of neurons
         for (int i = 0; i < layers.Length; i++){
             // Make a new layer with right number of neurons
-            Layer currentLayer = new Layer(layers[i]);
+            Layer currentLayer = new Layer(layers[i], i);
             this.layers.Add(currentLayer);
 
             // Add neurons to current layer
@@ -72,9 +72,11 @@ public class NeuralNetwork
 
         // Get the encoded value
         string[] element = lines[1].Split(new char[] { ',' });
+
         List<Double> encoded = new List<double>();
         for (int i = 0; i < element.Length; i++){
             encoded.Add(Convert.ToDouble(element[i]));
+            Debug.Log(encoded[i]);
 
         }
 

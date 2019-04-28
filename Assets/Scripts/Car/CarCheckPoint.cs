@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class CarCheckPoint : MonoBehaviour
 {
     public CarController carController;
+    public TrackScript track;
     public Transform[] checkpointArray;
     public int nextCheckpoint = 1;
     public int currentLap = 0;
@@ -15,12 +16,13 @@ public class CarCheckPoint : MonoBehaviour
 
     // Start is called before the first frame update
     void Start(){
+        checkpointArray = track.checkpointArray;
         distanceToCheckpoint = Vector2.Distance(carController.car.position, checkpointArray[nextCheckpoint].position);
     }
 
     // Update is called once per frame
     void Update(){
         distanceToCheckpoint = Vector2.Distance(carController.car.position, checkpointArray[nextCheckpoint].position);
-        checkPointText.text = "Checkpoint: " + nextCheckpoint.ToString();
+        //checkPointText.text = "Checkpoint: " + nextCheckpoint.ToString();
     }
 }

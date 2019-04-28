@@ -5,11 +5,10 @@ using UnityEngine.UI;
 
 public class CarSensors : MonoBehaviour{
     public Transform car;
-    public Transform rayEnd;
     public float distance = 0;
     public float hitNormal = 0;
 
-    public Text distanceText;
+    //public Text distanceText;
 
     private void Start(){
     }
@@ -18,7 +17,7 @@ public class CarSensors : MonoBehaviour{
     void LateUpdate(){
 
         // Get the direction vector of the ray
-        Vector2 direction = rayEnd.position - car.position;
+        Vector2 direction = gameObject.transform.position - car.position;
 
         // Bit shift the index of the layer (8) to get a bit mask
         int layerMask1 = 1 << 8;
@@ -40,12 +39,12 @@ public class CarSensors : MonoBehaviour{
 
             Debug.DrawRay(car.position, direction, Color.red);
 
-            distanceText.text = hit.distance.ToString("0.00");
+            //distanceText.text = hit.distance.ToString("0.00");
 
         }else{
             distance = 1;
             Debug.DrawRay(car.position, direction, Color.white);
-            distanceText.text = "Inf";
+            //distanceText.text = "Inf";
         }
 
     }

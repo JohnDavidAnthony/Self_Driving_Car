@@ -8,7 +8,6 @@ public class GeneticController
     private double populationFitness;
     public float mutationRate;
     public float averageFitness;
-    public float bestFitness;
     int popSize;
 
     // Constructor creates randomly weighted neural networks
@@ -18,7 +17,6 @@ public class GeneticController
         this.mutationRate = mutationRate;
         this.averageFitness = 0f;
         this.popSize = popSize;
-        bestFitness = 0;
 
         for (int i = 0; i < popSize; i++){
             // Create NN with specific structure
@@ -158,8 +156,8 @@ public class GeneticController
             }
 
             //Breed the two selected parents and add them to the next generation
-            Debug.Log("Breeding: " + parent1Index + " with fitness " + population[parent1Index].fitness);
-            Debug.Log("and " + parent2Index + " with fitness " + population[parent2Index].fitness);
+            //Debug.Log("Breeding: " + parent1Index + " with fitness " + population[parent1Index].fitness);
+            //Debug.Log("and " + parent2Index + " with fitness " + population[parent2Index].fitness);
 
             NeuralNetwork[] children = Breed(population[parent1Index], population[parent2Index]);
 
@@ -173,7 +171,7 @@ public class GeneticController
         } //  End foor loop -- Breeding
 
         // Make the children adults
-        for (int i = 0; i < popSize; i++){
+        for (int i = 1; i < popSize; i++){
             population[i] = nextGeneration[i];
         }
     }// End NextGeneration()

@@ -14,7 +14,7 @@ public class CarController : MonoBehaviour
     float torqueForce = 0;
     public CarCheckPoint carCheckPoint;
     Vector3 startingPos;
-    float carRotation;
+    Quaternion carRotation;
     float idleTime = 5f;
     float timeLeft = 0;
     int firstCheckpoint;
@@ -28,11 +28,7 @@ public class CarController : MonoBehaviour
 
     // The Car and sensors
     public Rigidbody2D car;
-    public CarSensors frontSensor;
-    public CarSensors frontLeftSensor;
-    public CarSensors frontRightSensor;
-    public CarSensors leftSensor;
-    public CarSensors rightSensor;
+    public List<CarSensors> sensors;
 
     // Car Flags
     public bool playerStopped;
@@ -46,12 +42,12 @@ public class CarController : MonoBehaviour
 
     void Start(){
         // Get the checkpoints
-        carCheckPoint = car.GetComponent<CarCheckPoint>();
+        carCheckPoint = gameObject.GetComponent<CarCheckPoint>();
         playerStopped = false;
         playerHitWall = false;
         hitCheckPoint = false;
-        startingPos = car.position;
-        carRotation = car.rotation;
+        startingPos = gameObject.transform.position;
+        carRotation = gameObject.transform.rotation;
         timerStarted = false;
         firstCheckpoint = carCheckPoint.nextCheckpoint;
 
@@ -68,7 +64,7 @@ public class CarController : MonoBehaviour
                 timeLeft += Time.deltaTime;
                 if (timeLeft > idleTime){
                     // Been idle for to long
-                    Debug.Log("Player Stopped Moving");
+                    //Debug.Log("Player Stopped Moving");
                     playerStopped = true;
                     timerStarted = false;
                     timeLeft = 0;
@@ -123,9 +119,30 @@ public class CarController : MonoBehaviour
     // Collision Detection
     private void OnTriggerEnter2D(Collider2D other){
         if (other.gameObject.tag == "CheckPoint"){
+            if (other.transform == carCheckPoint.checkpointArray[carCheckPoint.nextCheckpoint].transform)
+            {
+                // Car has reached next checkpoint
+                if (carCheckPoint.nextCheckpoint + 1 == carCheckPoint.checkpointArray.Length)
+                {
+                    // Next Checkpoint is the finish line
+                    carCheckPoint.nextCheckpoint = 0;
+                    // Increase Lap
+                    carCheckPoint.currentLap += 1;
+                }
+                else
+                {
+                    // We've reached another checkpoint
+                    carCheckPoint.nextCheckpoint += 1;
+                    hitCheckPoint = true;
+                }
+            }
+            return;
+        }else if(other.gameObject.tag == "Player")
+        {
             return;
         }
         ///Assume anything we hit besides checkpoint is a wall
+
         playerHitWall = true;
        
     }
@@ -133,7 +150,7 @@ public class CarController : MonoBehaviour
     public void ResetPosition(){
         this.car.velocity = Vector2.zero;
         this.car.position = startingPos;
-        this.car.rotation = carRotation;
+        gameObject.transform.rotation = carRotation;
         this.carCheckPoint.nextCheckpoint = firstCheckpoint;
         timeLeft = 0;
 
