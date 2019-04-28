@@ -12,13 +12,13 @@ The car is equipped with 5 sensors, 2 on both sides, 2 at 45 degrees, and 1 stra
 
 ## Neural Network
 The network is customizeable in terms of how many layers and the number of nodes in each layer. The type of network is fixed (feed forward) and I would like to try new network types in the future. 
-The network I used to run the cars is comprised of 3 layers. The input layer has 5 inputs for the car's sensors and another one for the speed of the car. 6 neurons for the hidden layer and 2 neurons for the output (1 for left/right turning and 1 for forwards/reverse.
+The network I used to run the cars is comprised of 3 layers. The input layer has 5 inputs for the car's sensors and another one for the speed of the car. 6 neurons for the hidden layer and 2 neurons for the output (1 for left/right turning and 1 for forwards/reverse. Thicker lines indicate bigger weights, green is a positive multiplier, red is a negative multiplier.
 <img src="images/network.png" alt="Picture of Neural Network" width="500px" height="auto">
 
 ## Genetics & Evolution
 To train the network, I used a genetic algorithm that evolved the network similar to species evolved in the real world over thousands of generations to become better at a task. 
 ### The Process
-Firstly, we generate an intial random population (the number of creatures in each generation can be changed). Each "creature" has its own genome that is made of of different genes, each gene is a bias of a neuron or the weight of a connection between neruons.
+Firstly, we generate an initial random population (the number of creatures in each generation can be changed). Each "creature" has its own genome that is made of different genes, each gene is a bias of a neuron or the weight of a connection between neurons.
 #### Evaluate
 We then simulate each creature and evaluate how well they performed in the environment using a fitness function. The fitness function is made of 3 parts: the creature's average speed, the distance the creature travelled, and how close to the middle of the track the creature was during its run (How much you value each of these metrics can be changed to influence the fitness function).
 #### Breeding
@@ -35,7 +35,7 @@ We then repeat the process until we are happy with the results.
 - Configure training properties in the Academy game object
 
 ## Future Goals
-- Have structure of NN as part of breeding process
+- Have the structure of the NN as part of the breeding process
 - Neural Networks with memory
 
 ### ToDo:
