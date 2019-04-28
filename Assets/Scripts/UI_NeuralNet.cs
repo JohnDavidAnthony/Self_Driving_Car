@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UI_Genetics : MonoBehaviour
+public class UI_NeuralNet : MonoBehaviour
 {
     public Academy academy;
     public Text genome;
@@ -13,6 +13,12 @@ public class UI_Genetics : MonoBehaviour
     public Slider slider;
     public Text averageFitness;
     public Text bestFitness;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+
+    }
 
     // Update is called once per frame
     void Update()

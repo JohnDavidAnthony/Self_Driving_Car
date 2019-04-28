@@ -33,7 +33,7 @@ public class NeuralNetwork
         // initalize our NN with layers of neurons
         for (int i = 0; i < layers.Length; i++){
             // Make a new layer with right number of neurons
-            Layer currentLayer = new Layer(layers[i], i);
+            Layer currentLayer = new Layer(layers[i]);
             this.layers.Add(currentLayer);
 
             // Add neurons to current layer
