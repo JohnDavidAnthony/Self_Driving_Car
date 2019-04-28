@@ -3,7 +3,8 @@
 A 2D Unity simualtion that trains a car to drive around a track for as long and as fast as possible. The car is controlled using a fully connected neural network and is trained through a genetic algorithm.
 
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=oYBysMULeiA" target="_blank"><img src="http://img.youtube.com/vi/oYBysMULeiA/0.jpg" 
-alt="Thumbnail of youtube video" width="400" height="auto" border="10" /></a>
+alt="Thumbnail of youtube video" width="400" height="auto" border="10" /></a>  
+<br>[Click to see a demo video on youtube](http://www.youtube.com/watch?feature=player_embedded&v=oYBysMULeiA)  
 
 ## The Car
 The car is equipped with 5 sensors, 2 on both sides, 2 at 45 degrees, and 1 straight ahead.
