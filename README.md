@@ -2,6 +2,9 @@
 
 A 2D Unity simualtion that trains a car to drive around a track for as long and as fast as possible. The car is controlled using a fully connected neural network and is trained through a genetic algorithm.
 
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=oYBysMULeiA" target="_blank"><img src="http://img.youtube.com/vi/oYBysMULeiA/0.jpg" 
+alt="Thumbnail of youtube video" width="400" height="auto" border="10" /></a>
+
 ## The Car
 The car is equipped with 5 sensors, 2 on both sides, 2 at 45 degrees, and 1 straight ahead.
 <img src="images/car.png" alt="Picture of Car" width="400px" height="auto">
@@ -9,7 +12,7 @@ The car is equipped with 5 sensors, 2 on both sides, 2 at 45 degrees, and 1 stra
 ## Neural Network
 The network is customizeable in terms of how many layers and the number of nodes in each layer. The type of network is fixed (feed forward) and I would like to try new network types in the future. 
 The network I used to run the cars is comprised of 3 layers. The input layer has 5 inputs for the car's sensors and another one for the speed of the car. 6 neurons for the hidden layer and 2 neurons for the output (1 for left/right turning and 1 for forwards/reverse.
-<img src="images/network.png" alt="Picture of Neural Network" width="400px" height="auto">
+<img src="images/network.png" alt="Picture of Neural Network" width="500px" height="auto">
 
 ## Genetics & Evolution
 To train the network, I used a genetic algorithm that evolved the network similar to species evolved in the real world over thousands of generations to become better at a task. 
@@ -22,6 +25,21 @@ Once we calculate the fitness of all the creatures in the generation, we sort th
 #### Mutation
 Once we have bred the next generation, we randomly (with a small chance) choose genes to alter. The advantage of mutation in genetic algorithms is that it allows us to escape local optimal and create a better performing car. For example, we mutate the weight between the left car sensor which causes the car to turn right when it is close to the wall, thus increasing the fitness of the vehicle. 
 
+We then repeat the process until we are happy with the results.
 ## Track
-## Installation
+<img src="images/track1.png" alt="Picture of track1" width="500px" height="auto">
+## How to use
+- Download the project files and run inside the unity editor, under multi agent scene
+- Configure training properties in the Academy game object
+
 ## Future Goals
+- Have structure of NN as part of breeding process
+- Neural Networks with memory
+
+### ToDo:
+- Load from saved NN file
+- More Track Types
+
+## Acknowledgments
+- Car and Track: [Quill18](https://www.youtube.com/channel/UCPXOQq7PWh5OdCwEO60Y8jQ)  
+- NN Design Inspiration taken from: [ArztSamuel](https://github.com/ArztSamuel)
