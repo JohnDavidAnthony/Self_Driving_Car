@@ -29,6 +29,7 @@ Once we have bred the next generation, we randomly (with a small chance) choose 
 We then repeat the process until we are happy with the results.
 ## Track
 <img src="images/track1.png" alt="Picture of track1" width="500px" height="auto">
+
 ## How to use
 - Download the project files and run inside the unity editor, under multi agent scene
 - Configure training properties in the Academy game object
