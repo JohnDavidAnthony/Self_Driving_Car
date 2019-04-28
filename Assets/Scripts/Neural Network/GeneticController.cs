@@ -156,8 +156,8 @@ public class GeneticController
             }
 
             //Breed the two selected parents and add them to the next generation
-            Debug.Log("Breeding: " + parent1Index + " with fitness " + population[parent1Index].fitness);
-            Debug.Log("and " + parent2Index + " with fitness " + population[parent2Index].fitness);
+            //Debug.Log("Breeding: " + parent1Index + " with fitness " + population[parent1Index].fitness);
+            //Debug.Log("and " + parent2Index + " with fitness " + population[parent2Index].fitness);
 
             NeuralNetwork[] children = Breed(population[parent1Index], population[parent2Index]);
 

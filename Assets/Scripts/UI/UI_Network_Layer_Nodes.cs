@@ -8,7 +8,7 @@ public class UI_Network_Layer_Nodes : MonoBehaviour
     public Color posColour;
     public Color negColour;
 
-    public void DisplayConnections(int neuronIndex, Layer currentLayer, UI_Network_Layer nextLayer, NeuralNetwork network)
+    public void DisplayConnections(int neuronIndex, Layer currentLayer, UI_Network_Layer nextLayer, NeuralNetwork network, float scaleFactor)
     {
         Image node = connections[0];
         for (int i = connections.Count; i < nextLayer.nodes.Count; i++)
@@ -21,11 +21,11 @@ public class UI_Network_Layer_Nodes : MonoBehaviour
         // Position Connections
         for (int i = 0; i < connections.Count; i++)
         {
-            PositionConnections(connections[i], nextLayer.nodes[i], neuronIndex, i, currentLayer.GetWeights(network));
+            PositionConnections(connections[i], nextLayer.nodes[i], neuronIndex, i, currentLayer.GetWeights(network), scaleFactor);
         }
     }
 
-    private void PositionConnections(Image connection, UI_Network_Layer_Nodes otherNode, int nodeIndex, int connectedNodeIndex, double[,] weights)
+    private void PositionConnections(Image connection, UI_Network_Layer_Nodes otherNode, int nodeIndex, int connectedNodeIndex, double[,] weights, float scaleFactor)
     {
         //Set local position to 0
         connection.transform.localPosition = Vector3.zero;
@@ -33,19 +33,24 @@ public class UI_Network_Layer_Nodes : MonoBehaviour
         //Set connection width
         Vector2 sizeDelta = connection.rectTransform.sizeDelta;
         double weight = weights[nodeIndex, connectedNodeIndex];
-        sizeDelta.x = (float)System.Math.Abs(weight);
+        sizeDelta.x = (float)System.Math.Abs(weight*4);
         if (sizeDelta.x < 1)
             sizeDelta.x = 1;
 
         //Set conenction color
-        if (weight >= 0)
+        if (weight >= 0) {
+            posColour.a = 1f;
             connection.color = posColour;
-        else
+        }
+            
+        else {
+            negColour.a = 1f;
             connection.color = negColour;
-
+        }
+            
         //Set connection length (height)
         Vector2 connectionVec = this.transform.position - otherNode.transform.position;
-        sizeDelta.y = connectionVec.magnitude;
+        sizeDelta.y = connectionVec.magnitude / scaleFactor;
 
         connection.rectTransform.sizeDelta = sizeDelta;
 
@@ -54,17 +59,4 @@ public class UI_Network_Layer_Nodes : MonoBehaviour
         connection.transform.rotation = Quaternion.AngleAxis(angle, new Vector3(0, 0, 1));
     }
 
-    public void HideConnections()
-    {
-        //Destory all but dummy connection
-        for (int i = this.connections.Count - 1; i >= 1; i++)
-        {
-            Image toBeDestroyed = connections[i];
-            connections.RemoveAt(i);
-            Destroy(toBeDestroyed);
-        }
-
-        //Hide dummy connection
-        connections[0].gameObject.SetActive(false);
-    }
 }

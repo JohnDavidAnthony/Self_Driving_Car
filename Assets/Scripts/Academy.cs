@@ -50,6 +50,9 @@ public class Academy : MonoBehaviour
         UI_Genetics genetics = Network_GUI.GetComponentInChildren<UI_Genetics>();
         genetics.academy = this;
         networkUI = Network_GUI.GetComponentInChildren<UI_Network>();
+        networkUI.Display(carController[0].network);
+
+
     }
 
     void Update(){
@@ -63,10 +66,10 @@ public class Academy : MonoBehaviour
                 if (car.overallFitness > bestCarFitness){
                     bestCarFitness = car.overallFitness;
                     bestCamera.target = car.transform;
+                    networkUI.DrawConnections(car.network);
                     bestCar = car;
                     if (bestCar.overallFitness > bestGenomeFitness){
                         bestGenomeFitness = bestCar.overallFitness;
-                        networkUI.Display(bestCar.network);
                     }
                 }
 

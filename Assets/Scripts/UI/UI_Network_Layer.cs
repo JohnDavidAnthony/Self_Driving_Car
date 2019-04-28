@@ -24,17 +24,13 @@ public class UI_Network_Layer : MonoBehaviour
         }
     }
 
-    public void DisplayConnections(Layer currentLayer, UI_Network_Layer nextLayer, NeuralNetwork network)
+    public void DisplayConnections(Layer currentLayer, UI_Network_Layer nextLayer, NeuralNetwork network, float scaleFactor)
     {
         for (int i = 0; i < nodes.Count; i++)
         {
-            nodes[i].DisplayConnections(i, currentLayer, nextLayer, network);
+            nodes[i].DisplayConnections(i, currentLayer, nextLayer, network, scaleFactor);
         }
             
     }
-    public void HideAllConnections()
-    {
-        foreach (UI_Network_Layer_Nodes node in nodes)
-            node.HideConnections();
-    }
+
 }
