@@ -9,7 +9,7 @@ The car is equipped with 5 sensors, 2 on both sides, 2 at 45 degrees, and 1 stra
 ## Neural Network
 The network is customizeable in terms of how many layers and the number of nodes in each layer. The type of network is fixed (feed forward) and I would like to try new network types in the future. 
 The network I used to run the cars is comprised of 3 layers. The input layer has 5 inputs for the car's sensors and another one for the speed of the car. 6 neurons for the hidden layer and 2 neurons for the output (1 for left/right turning and 1 for forwards/reverse.
-<img src="images/network.png" alt=“Picture of Neural Network” width=“400px” height=“auto”>
+<img src="images/network.png" alt="Picture of Neural Network" width="400px" height="auto">
 
 ## Genetics & Evolution
 To train the network, I used a genetic algorithm that evolved the network similar to species evolved in the real world over thousands of generations to become better at a task. 
